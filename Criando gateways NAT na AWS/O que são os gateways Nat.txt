@@ -38,4 +38,13 @@ Isso significa que, à medida que o tráfego de rede aumenta, a AWS aumenta auto
 
 Esse recurso de escalabilidade garante que suas instâncias na sub-rede privada possam manter uma conectividade de Internet confiável e eficiente, mesmo durante períodos de alta demanda ou picos de tráfego.
 
+CONCLUSÃO DAS TAREFAS EXECUTADAS:
+- Foi criada com êxito uma nova VPC do zero e criou sub-redes públicas e privadas.
 
+- Foi criado um gateway de Internet e configurado em uma nova tabela de rotas. 
+
+- Foi iniciada 1 instância do EC2 de cada uma das sub-redes Pública e Privada e testado o acesso à Internet a partir delas.
+
+- Para fornecer acesso à Internet à instância do EC2 na sub-rede privada, foi craido um gateway NAT e configurado a uma tabela de rotas.
+
+- Foi confirmado que a instância na sub-rede privada consegue se conectar à Internet.
