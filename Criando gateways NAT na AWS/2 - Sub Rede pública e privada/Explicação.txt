@@ -12,17 +12,17 @@ As sub-redes públicas têm conectividade com a Internet, enquanto as sub-redes 
 2 - CRIANDO A SUB-REDE PÚBLICA E PRIVADA.
 
 2 A - CRIANDO A SUB-REDE PÚBLICA. 
-ID da VPC: vpc-NAT-gateway
-Nome da sub-rede: digite  vpc-NAT-gateway-publica
-Zona de disponibilidade:  sem preferência
-Bloco CIDR IPv4: Digite  10.0.0.0/24
-Sub-rede pública criada.
+- ID da VPC: vpc-NAT-gateway
+- Nome da sub-rede: digite  vpc-NAT-gateway-publica
+- Zona de disponibilidade:  sem preferência
+- Bloco CIDR IPv4: Digite  10.0.0.0/24
+- Sub-rede pública criada.
 
 2 B - CRIANDO A SUB-REDE PÚBLICA. 
-ID da VPC: vpc-NAT-gateway
-Nome da sub-rede: digite  vpc-NAT-gateway-PRIVADA
-Zona de disponibilidade:  sem preferência
-Bloco CIDR IPv4: Digite  10.0.1.0/24
-Sub-rede privada criada.
+- ID da VPC: vpc-NAT-gateway
+- Nome da sub-rede: digite  vpc-NAT-gateway-PRIVADA
+- Zona de disponibilidade:  sem preferência
+- Bloco CIDR IPv4: Digite  10.0.1.0/24
+- Sub-rede privada criada.
 
 
