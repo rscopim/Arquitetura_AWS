@@ -12,9 +12,9 @@ O que são gateways NAT?
 
 - Temos 2 tipos de dispositivos NAT:
 
-- Instância NAT
+    - Instância NAT
 
-- Gateway NAT
+    - Gateway NAT
 
 - A instância NAT usa AMIs do Amazon Linux.
 
