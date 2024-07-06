@@ -1,3 +1,7 @@
 Você sabe?
 
-O NAT Gateway permite alta escalabilidade e pode lidar com milhares a dezenas de milhares de conexões simultâneas por segundo. Ele foi projetado para lidar com cargas de tráfego significativas e fornece escalonamento automático com base na demanda. Isso significa que, à medida que o tráfego de rede aumenta, a AWS aumenta automaticamente a capacidade do gateway NAT para acomodar a carga de trabalho mais alta. Esse recurso de escalabilidade garante que suas instâncias na sub-rede privada possam manter uma conectividade de Internet confiável e eficiente, mesmo durante períodos de alta demanda ou picos de tráfego.
+O NAT Gateway permite alta escalabilidade e pode lidar com milhares a dezenas de milhares de conexões simultâneas por segundo. 
+
+Ele foi projetado para lidar com cargas de tráfego significativas e fornece escalonamento automático com base na demanda. Isso significa que, à medida que o tráfego de rede aumenta, a AWS aumenta automaticamente a capacidade do gateway NAT para acomodar a carga de trabalho mais alta. 
+
+Esse recurso de escalabilidade garante que suas instâncias na sub-rede privada possam manter uma conectividade de Internet confiável e eficiente, mesmo durante períodos de alta demanda ou picos de tráfego.
