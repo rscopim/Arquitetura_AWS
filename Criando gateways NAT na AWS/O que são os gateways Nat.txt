@@ -27,3 +27,25 @@ O que são gateways NAT?
 - O NAT Gateway não suporta tráfego IPv6.
 
 - A AWS recomenda o uso do gateway NAT, pois eles fornecem melhor disponibilidade e largura de banda em instâncias NAT.
+
+Você sabe?
+
+O NAT Gateway permite alta escalabilidade e pode lidar com milhares a dezenas de milhares de conexões simultâneas por segundo. 
+
+Ele foi projetado para lidar com cargas de tráfego significativas e fornece escalonamento automático com base na demanda. 
+
+Isso significa que, à medida que o tráfego de rede aumenta, a AWS aumenta automaticamente a capacidade do gateway NAT para acomodar a carga de trabalho mais alta. 
+
+Esse recurso de escalabilidade garante que suas instâncias na sub-rede privada possam manter uma conectividade de Internet confiável e eficiente, mesmo durante períodos de alta demanda ou picos de tráfego.
+
+
+CONCLUSÃO:
+- Foi criada com êxito uma nova VPC do zero e criou sub-redes públicas e privadas.
+
+- Foi criado um gateway de Internet e configurado em uma nova tabela de rotas. 
+
+- Foi iniciada 1 instância do EC2 de cada uma das sub-redes Pública e Privada e testado o acesso à Internet a partir delas.
+
+- Para fornecer acesso à Internet à instância do EC2 na sub-rede privada, foi craido um gateway NAT e configurado a uma tabela de rotas.
+
+- Foi confirmado que a instância na sub-rede privada consegue se conectar à Internet.

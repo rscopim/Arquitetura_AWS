@@ -1,0 +1,19 @@
+Nesta tarefa, lançamos uma instância EC2 na sub-rede pública. 
+
+Isso permite que os usuários tenham uma instância acessível ao público que pode se comunicar diretamente com a Internet.
+
+INSTÂNCIA EC2 EM SUB-REDE PÚBLICA.
+AMI usada: Amazon Linux 2 AMI
+Tipo de instância: t2.micro
+Foi usada a;
+VPC
+Sub-rede
+IP público automático.
+
+INSTÂNCIA EC2 EM SUB-REDE PÚBLICA.
+AMI usada: Amazon Linux 2 AMI
+Tipo de instância: t2.micro
+Foi usada a;
+VPC
+Sub-rede
+IP público desativado.
