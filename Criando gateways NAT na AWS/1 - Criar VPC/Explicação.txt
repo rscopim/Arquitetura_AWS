@@ -1,0 +1,13 @@
+Nesta tarefa foi criada uma VPC na região us-east-1.
+
+- Recursos criados: selecione somente VPC
+
+- Tag de nome: vpc-NAT-gateway
+
+- Bloco CIDR IPv4: 10.0.0.0/16 
+
+- Bloco CIDR IPv6: Nenhum bloco CIDR IPv6
+
+- Locação:  Padrão
+
+- VPC criada.
