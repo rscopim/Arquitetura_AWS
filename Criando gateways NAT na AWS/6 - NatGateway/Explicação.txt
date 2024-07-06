@@ -1,0 +1,4 @@
+Nesta tarefa, criamos um Gateway NAT, que fornece acesso à Internet para instâncias da sub-rede privada. 
+
+O Gateway NAT atua como intermediário para encaminhar o tráfego entre a sub-rede privada e a Internet.
+
