@@ -1,0 +1,18 @@
+Nesta tarefa, criamos uma tabela de rotas públicas.
+
+Foi configurada para associar-se à sub-rede pública. 
+
+A tabela de rotas públicas define como o tráfego é roteado entre a VPC e a Internet.
+
+- Tag de nome: TabelaRotaPublica
+- VPC: selecione  vpc-NAT-gateway
+- Criada a tabela de rotas .
+
+Anexando a tabela de rotas ao gateway da internet.
+- Editamos a rota e adiconamos o destino 0.0.0.0/0
+- Alvo: internet gateway com seleção da vpc-GatewayInternet
+
+Associada a sub-rede a nossa tabela de rotas.
+
+Após todo esse passo nossa rede terá acesso à internet.
+

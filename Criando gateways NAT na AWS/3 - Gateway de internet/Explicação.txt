@@ -1,0 +1,5 @@
+Nesta tarefa foi criado um gateway de internet para atuar entre a VPC e a internet.
+
+Essa tarefa permite que instâncias da VPC se comuniquem com a internet.
+
+Após a criação do internet gateway anexamos o mesmo a uma VPC.
