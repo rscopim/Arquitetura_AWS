@@ -1,0 +1,29 @@
+1 - CloudFormation é um serviço fornecido pela AWS para projetar nossa própria infraestrutura usando código, ou seja, infraestrutura como código.
+2 - Atualmente, o CloudFormation oferece suporte a duas linguagens,  JSON e YAML.  Você pode escrever seu código com uma das linguagens.
+3 - CloudFormation vem com ótimos recursos, podendo atualizar sua infraestrutura sempre que quiser e também podendo deletar a pilha caso não precise dela.
+4 - Uma característica fascinante do CloudFormation é que ele economiza mais tempo na construção de infraestrutura e ajuda a focar no desenvolvimento.
+5 - Também é possível replicar nossa infraestrutura em um curto espaço de tempo.
+6 - Elimina erros humanos e funciona de acordo com o código que você escreveu. Consiste em dois componentes principais,  Pilha e Modelos.
+
+Modelo CloudFormation
+1 - Consiste em várias seções como;
+- Versão do formato do modelo AWS
+- Descrição
+- Metadados
+- Parâmetros
+- Mapeamentos
+- Condições
+- Recursos (campo obrigatório)
+- Resultados
+2 - Não é obrigatório que o modelo exija todas as seções mencionadas acima. Usando apenas a seção Recursos, poderemos criar um modelo.
+3 - A seção de recursos desempenha um papel importante na criação do modelo.
+4 - Por exemplo, para criar uma instância EC2, um modelo deve consistir em vários parâmetros, como nome da chave, ID da imagem e tipo de instância.
+5 - Também é possível criar dois recursos no mesmo template e referenciar um a partir do outro, ou seja, anexando um IP elástico a uma instância EC2.
+
+Pilha CloudFormationUma 
+1 - Pilha consiste em uma coleção de recursos.
+2 - Em outras palavras, a pilha consiste em um ou mais modelos.
+3 - A vantagem da pilha é que é fácil criar, excluir ou atualizar a coleção de recursos.
+4 - As pilhas avançadas possuem uma pilha aninhada que contém uma coleção de pilhas.
+
+
