@@ -1,0 +1,9 @@
+Nesta tarefa criamos as Sub-redes pública e privada.
+
+Nome da sub-rede pública: LabVPCpublica
+Zona de disponibilidade : us-east-1a
+Bloco CIDR IPv4 : 10.0.1.0/24
+
+Nome da sub-rede privada: LabVPCprivada
+Zona de disponibilidade : us-east-1b  
+Bloco CIDR IPv4 : 10.0.2.0/24 

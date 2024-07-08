@@ -1,0 +1,6 @@
+Nesta tarefa criamos nova VPC na região us-east-1 do Leste dos EUA (Norte da Virgínia).
+Foi selecionado somente VPC
+Tag de nome: LabVPC
+Bloco CIDR IPv4: 10.0.0.0/16 
+Bloco CIDR IPv6: Nenhum bloco CIDR IPv6
+Locação: Padrão

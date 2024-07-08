@@ -1,0 +1,13 @@
+Nesta tarefa criamos as tabelas de rotas a associamos às suas respectivas redes.
+Nome: LabRotaPublica
+VPC: LabVPC
+
+Nome: LabRotaPrivada
+VPC: LabVPC
+
+Após a criação associamos as sub-redes  às tabelas de rotas.
+
+Na LabRotaPublica adicionamos uma rota para permitir o tráfego da Internet para a VPC.
+Os seguintes valores foram especificados:
+Destino: 0.0.0.0/0
+Alvo: Internet Gateway

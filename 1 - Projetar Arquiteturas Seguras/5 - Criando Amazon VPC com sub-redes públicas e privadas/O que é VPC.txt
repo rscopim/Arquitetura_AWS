@@ -10,3 +10,13 @@ O que é VPC?
 - EIP é um endereço IPv4 estático usado pela AWS para gerenciar seus serviços dinâmicos de computação em nuvem e pode ser associado a uma conta da AWS para mascarar se ocorrer uma falha na instância.
 - Os dispositivos NAT podem ser uma instância ou um gateway que reside em uma sub-rede pública e ajudam instâncias em sub-redes privadas a interagir com a Internet.
 - A Lista de Controle de Acesso é uma camada opcional de segurança que atua como um firewall para controlar o tráfego de rede dentro e fora da sub-rede e usa regras para permitir ou negar o tráfego de rede com base em portas ou endereços IP.
+
+Você sabe ?
+Os registros de fluxo de VPC capturam informações sobre o tráfego IP que entra e sai de sua VPC. 
+Ele fornece insights detalhados sobre padrões de tráfego de rede, ajudando você a analisar e solucionar problemas de conectividade, monitorar a segurança e atender aos requisitos de conformidade.
+
+CONCLUSÃO DAS TAREFAS EXECUTADAS
+Foi concluido com êxito como criar sub-redes públicas e privadas.
+Aprendemos como criar um gateway de Internet e associá-lo ao VPC.
+Entendemos como as sub-redes públicas e privadas são diferentes (através da associação do Internet Gateway ou não).
+As instâncias lançadas dentro da sub-rede pública poderão acessar a internet e as instâncias lançadas dentro da sub-rede privada não terão acesso à internet.
