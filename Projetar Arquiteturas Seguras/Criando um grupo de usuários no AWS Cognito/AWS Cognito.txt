@@ -1,0 +1,3 @@
+O Amazon Cognito é um serviço de gerenciamento de acesso e identidade do cliente (CIAM) centrado no desenvolvedor e com bom custo-benefício.
+Ele fornece um armazenamento de identidade seguro e opções de federação que podem ser dimensionadas para milhões de usuários. 
+Cognito oferece suporte ao login com provedores de identidade social e provedores de identidade baseados em SAML ou OIDC.
