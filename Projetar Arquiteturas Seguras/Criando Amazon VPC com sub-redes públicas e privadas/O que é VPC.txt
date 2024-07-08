@@ -1,0 +1,12 @@
+O que é VPC?
+
+- VPC significa Virtual Private Cloud, que é uma rede virtual personalizada dentro da Nuvem AWS.
+- Os componentes principais de uma VPC incluem sub-redes, endereços IP, dispositivos NAT, tabelas de rotas, gateways, listas de controle de acesso, grupos de segurança e endpoints VPC.
+- As sub-redes são um segmento do intervalo de endereços IP da VPC onde os recursos da AWS podem ser iniciados e são classificadas como públicas e privadas.
+- As sub-redes públicas contêm recursos que podem ser acessados ​​pela Internet e devem ter um endereço IP elástico, um gateway de Internet e uma entrada na tabela de rotas com destino como gateway de Internet.
+- As sub-redes privadas contêm recursos que podem ser acessados ​​na rede VPC e usam dispositivos NAT para interagir com a Internet.
+- As tabelas de rotas contêm conjuntos de regras, chamadas rotas, que são usadas para determinar para onde o tráfego é direcionado, e cada sub-rede em uma VPC está vinculada a uma tabela de rotas.
+- O Internet Gateway é um roteador virtual que ajuda uma VPC a se conectar à Internet e é conectado à VPC para permitir o acesso à Internet.
+- EIP é um endereço IPv4 estático usado pela AWS para gerenciar seus serviços dinâmicos de computação em nuvem e pode ser associado a uma conta da AWS para mascarar se ocorrer uma falha na instância.
+- Os dispositivos NAT podem ser uma instância ou um gateway que reside em uma sub-rede pública e ajudam instâncias em sub-redes privadas a interagir com a Internet.
+- A Lista de Controle de Acesso é uma camada opcional de segurança que atua como um firewall para controlar o tráfego de rede dentro e fora da sub-rede e usa regras para permitir ou negar o tráfego de rede com base em portas ou endereços IP.
