@@ -1,0 +1,102 @@
+Tarefa 1: faça login no AWS Management Console
+Clique no  botão Open Console  e você será redirecionado para o AWS Console em uma nova guia do navegador.
+
+Na página de login da AWS,
+
+Deixe o ID da conta como padrão. Nunca edite/remova o ID da conta de 12 dígitos presente no Console AWS. Caso contrário, você não poderá prosseguir com o laboratório.
+
+Agora copie seu  nome de usuário  e  senha  no console do laboratório para o  nome de usuário e senha do IAM  no console AWS e clique no  botão Sign-in  .
+
+Depois de fazer login no Console de gerenciamento da AWS, defina a região padrão da AWS como  Leste dos EUA (Norte da Virgínia) us-east-1.
+
+Selecione Talvez mais tarde no  pop-up da página inicial do novo console  AWS
+
+Tarefa 2: Criando um Grupo de Usuários
+Nesta tarefa, orientaremos os usuários no processo de criação de um grupo de usuários no AWS Cognito. A criação de um grupo de usuários é a primeira etapa na configuração da autenticação e autorização do usuário para um aplicativo. Ele estabelece a base para o gerenciamento de contas de usuário, inscrição e processos de login.
+
+Navegue até o Cognito clicando no menu Serviços  na parte superior, clique em Cognito na seção Segurança, Identidade e Conformidade .
+
+Certifique-se de estar na região us-east-1 do Leste dos EUA (Norte da Virgínia) . Clique em Criar grupo de usuários .
+
+Tarefa 3: configurar a experiência de login
+Nesta tarefa, permitiremos que os usuários configurem as opções de login para seu grupo de usuários. Ao selecionar os tipos de provedor e opções de login apropriados, os usuários podem definir como os usuários podem autenticar e entrar em seu aplicativo, como usar email, logins sociais ou outros provedores de identidade.
+
+Adicione detalhes na experiência de configuração de login: 
+
+Tipos de provedor: selecione o grupo de usuários do Cognito
+
+Opções de login do grupo de usuários do Cognito: selecione E-mail
+
+Tarefa 4: configurar requisitos de segurança
+Nesta tarefa, definiremos os requisitos de segurança para senhas de usuários no grupo de usuários. Ao configurar uma política de senha, os usuários podem impor regras específicas de força e complexidade da senha para aumentar a segurança das contas de usuário.
+
+Política de senha:
+
+Modo de política de senha: selecione os padrões do Cognito
+
+Fornecemos a força mínima da senha e podemos adicionar os parâmetros necessários, como números, letras minúsculas, maiúsculas e caracteres especiais. Aqui, estamos selecionando os padrões do Cognito. Também podemos personalizar essa senha.
+
+A autenticação multifator (MFA) aumenta a segurança para seus usuários finais. Os números de telefone devem ser verificados se o MFA estiver ativado. Escolhemos Sem MFA para este laboratório.
+
+A verificação exige que os usuários recuperem um código de e-mail ou telefone para confirmar a propriedade. A verificação de um telefone ou e-mail é necessária para confirmar automaticamente os usuários e permitir a recuperação de senhas esquecidas. Nesse caso, escolhemos Habilitar recuperação de conta de autoatendimento.
+
+Recuperação de conta: quando um usuário esquece sua senha, ele pode receber um código enviado para seu e-mail verificado ou telefone verificado para recuperar sua conta. Você pode escolher a forma preferida de enviar códigos abaixo. Aqui, escolhemos apenas e-mail .
+
+Tarefa 5: configurar a experiência de inscrição
+Nesta tarefa, permitiremos que os usuários definam a experiência de inscrição para os usuários de seus aplicativos. Os usuários podem escolher se desejam ativar o autorregistro, o que permite que os usuários se inscrevam sem interferência do administrador. Eles também podem especificar os atributos necessários durante o processo de inscrição, como e-mail, nome, nome de usuário preferencial e número de telefone.
+
+Você pode optar por permitir que apenas administradores criem usuários ou permitir que os próprios usuários se inscrevam .
+
+Inscrição de autoatendimento: 
+
+Autorregistro: Marque a caixa de seleção Habilitar autorregistro
+
+Optamos por permitir que os usuários se inscrevam, onde os próprios usuários podem se inscrever sem interferência do administrador.
+
+Verificação de atributos e confirmação de conta de usuário: 
+
+Mantenha as alterações como padrão. 
+
+Atributos obrigatórios: 
+
+Podemos escolher os Atributos Padrão , que serão exigidos durante a realização da inscrição. Aqui, escolhemos Nome, Nome de usuário preferencial e Número de telefone que são necessários para realizar uma inscrição.
+
+Também podemos personalizar nossos atributos exigidos durante a inscrição clicando em Adicionar atributo personalizado .
+
+
+Tarefa 6: configurar a entrega de mensagens
+Nesta tarefa, forneceremos aos usuários a opção de configurar a entrega de mensagens, especificamente a entrega de e-mail, do grupo de usuários. Os usuários podem optar por enviar e-mails usando o Amazon SES (Simple Email Service) e especificar se são necessários limites diários mais altos de e-mail. Esta tarefa permite que os usuários configurem a comunicação por email para diversas finalidades, como verificação de usuário ou recuperação de senha.
+
+Você pode enviar e-mails de uma identidade verificada pelo SES. Antes de enviar um e-mail usando o Amazon SES, você deve verificar cada identidade que usará como endereço de origem, remetente ou caminho de retorno para provar que é o proprietário dela. Por enquanto, deixamos em branco.
+
+Configuração do Amazon SES: o Cognito enviará e-mails por meio da configuração do Amazon SES. Selecione Sim se precisar de limites diários de e-mail mais altos; caso contrário, selecione Não. Aqui, selecionamos Enviar e-mail com Cognito no Provedor de e-mail .
+
+Tarefa 7: integre seu aplicativo
+ Nesta tarefa, orientaremos os usuários na integração de seu aplicativo com o grupo de usuários. Os usuários podem especificar o nome do grupo de usuários e criar um cliente de aplicativo inicial com um ID exclusivo e uma chave secreta opcional. Esta etapa de integração permite que o aplicativo autentique e interaja com o grupo de usuários para fins de gerenciamento e autenticação de usuários.
+
+Você pode criar um grupo de usuários.
+
+Nome do grupo de usuários: Insira whizlabs
+
+Os clientes do aplicativo que adicionarmos receberão um ID exclusivo e uma chave secreta opcional para acessar esse grupo de usuários. Cliente inicial do aplicativo:
+
+Nome do cliente do aplicativo: Digite whizclient
+
+Tarefa 8: Revisão
+Nesta tarefa, daremos aos usuários a oportunidade de revisar todas as definições e configurações que fizeram até agora. Ele permite que os usuários garantam que tudo esteja configurado corretamente antes de criar o grupo de usuários. Ao revisar as configurações, os usuários podem identificar possíveis erros ou ajustes que precisam ser feitos.
+
+Revise todas as configurações e clique em Criar Pool conforme mostrado abaixo.
+
+Do ponto de vista administrativo, se tivermos um aplicativo, o aplicativo invocaria o Amazon Cognito para criar o próprio usuário.
+
+Conclusão e Conclusão
+Você usou com sucesso o console de gerenciamento da AWS para criar um grupo de usuários.
+
+Você aprendeu como usar cada configuração de maneira detalhada.
+
+Você aprendeu como fazer configurações para políticas, MFA e verificações.
+
+
+
+
+
