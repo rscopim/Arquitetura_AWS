@@ -1,0 +1,47 @@
+Está tarefa orienta como criar uma VPC usando uma pilha do AWS CloudFormation.
+Neste laboratório, lançaremos um modelo AWS CloudFormation para criar inicialmente duas sub-redes. 
+Posteriormente, atualizaremos para o Amazon VPC de quatro sub-redes que abrange duas zonas de disponibilidade.
+
+                O que é VPC?
+1 - Uma VPC é semelhante a uma rede de computadores que podemos criar em um data center local. 
+Da mesma forma, à medida que criamos redes dedicadas e privadas dentro de uma organização, onde os computadores em uma rede compartilham dispositivos de rede, como roteadores, switches e assim por diante, podemos criar uma VPC quando criamos uma nova conta na AWS.
+
+2 - A VPC possibilita moldar uma infraestrutura de rede semelhante à que podemos moldar em nosso próprio data center. 
+A diferença é que é um ambiente virtual dentro de uma nuvem pública em que a rede virtual está logicamente isolada de outras redes semelhantes dentro da nuvem pública.
+
+3 - Sub-rede:  Sub-rede é a abreviação de sub-rede. Como vimos no início deste capítulo, uma rede é subdividida em múltiplas partes lógicas para controlar o acesso a subpartes lógicas individuais da rede.
+
+                O que é o AWS CloudFormation?
+1 - CloudFormation é um serviço fornecido pela AWS para projetar nossa própria infraestrutura usando código, ou seja, infraestrutura como código.
+
+2 - Atualmente, o CloudFormation oferece suporte a duas linguagens  JSON e YAML.  Você pode escrever seu código com uma das linguagens.
+
+3 - CloudFormation vem com ótimos recursos, podendo atualizar sua infraestrutura sempre que quiser e também ter a capacidade de deletar a pilha caso não precise dela.
+
+4 - Uma característica fascinante da formação de nuvens é que ela economiza mais tempo na construção de infraestrutura e ajuda a focar no desenvolvimento.
+
+5 - Também é possível replicar nossa infraestrutura em um curto espaço de tempo.
+
+6 - Elimina erros humanos e funciona de acordo com o código que você escreveu. Consiste em dois componentes principais,  Pilha e Modelos.
+
+                Quais são os modelos do CloudFormation?
+1 - Consiste em várias seções como;
+Versão do formato do modelo AWS
+Descrição
+Metadados
+Parâmetros
+Mapeamentos
+Condições
+Recursos  (campo obrigatório)
+Resultados
+
+2 - Não é obrigatório que o modelo exija todas as seções mencionadas acima. Usando apenas a seção Recursos, poderemos criar um modelo.
+3 - A seção de recursos desempenha um papel importante na criação do modelo.
+4 - Por exemplo, para criar uma instância EC2, um modelo deve consistir em vários parâmetros, como nome da chave, ID da imagem e tipo de instância.
+5 - Também é possível criar dois recursos no mesmo modelo e referir-se um ao outro, ou seja, anexar um IP elástico a uma instância EC2.
+
+                O que é uma pilha do CloudFormation?
+1 - Uma pilha consiste em uma coleção de recursos.
+2 - Em outras palavras, a pilha consiste em um ou mais modelos.
+3 - A vantagem da pilha é que é fácil criar, excluir ou atualizar a coleção de recursos.
+4 - As pilhas avançadas possuem uma pilha aninhada que contém uma coleção de pilhas.
