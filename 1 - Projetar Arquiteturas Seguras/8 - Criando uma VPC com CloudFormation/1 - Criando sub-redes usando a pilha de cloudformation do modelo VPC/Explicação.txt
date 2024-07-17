@@ -1,0 +1,16 @@
+        Criando sub-redes usando a pilha de cloudformation do modelo VPC
+
+Nesta tarefa foi criada uma pilha VPC usando o modelo cloudformation pré-criado no bucket S3.
+Para criar a pilha VPC, selecionei um modelo pronto.
+Escolha  URL do Amazon S3  em Especificar modelo. Em seguida, cole o URL do objeto abaixo.
+
+Clique em Próximo 
+Nome da pilha: LabCFvpc-1
+Opção de etiqueta
+Chave: nome
+Valor: LabVPC 
+Deixe as outras opções como padrão e clique em  Avançar
+       
+Todos os detalhes da pilha foram revisados.
+CREATE_IN_PROGRESS.
+CREATE_COMPLETE.

@@ -1,0 +1,25 @@
+                Compreendendo o VPC_Template e o VPC_II_Template.
+No presente laboratório, usamos dois modelos para criação de pilha. Eles são VPC_Template e VPC_II_Template.
+
+Na imagem 1, estamos primeiro criando um VPC com o nome LabCFvpc, bloco CIDR-10.0.0.0/16. 
+Em seguida, é criado um gateway de internet com o nome Lab Internet Gateway. O Lab VPC é então anexado ao Lab Internet Gateway.
+
+Em seguida (imagem 2), estamos criando uma sub-rede pública chamada public subnet 1 na zona de disponibilidade 1 com o endereço IP 10.0.0.0/24. 
+A sub-rede privada é criada (denominada sub-rede privada 1) com endereço IP 10.0.1.0/24 no AZ-1.
+
+Após a criação das sub-redes, uma  tabela de rotas públicas é criada (imagem 3). 
+A sub-rede pública 1 é então associada à tabela de rotas públicas.
+
+Uma tabela de rotas privada é então criada (imagem 4). 
+A subnet1 privada é então associada à tabela de rotas privada. (Podemos encontrar a opção de associações de sub-rede na tabela de rotas e adicionar a sub-rede necessária no console).
+Mystack123 é então criado executando todos os recursos necessários. Depois disso, você atualizará o modelo de pilha com  VPC_II_Template. 
+
+Você está criando uma VPC com 2 sub-redes públicas e 2 sub-redes privadas. 
+A VPC é chamada de LabCFvpc semelhante à pilha criada acima. 
+Um gateway de Internet está conectado à VPC. 
+As sub-redes públicas usadas aqui são a sub-rede pública 1 (10.0.0.0/24) e a sub-rede pública 2 (10.0.2.0/24). 
+As sub-redes privadas são sub-rede privada1 (10.0.1.0/24) e sub-rede privada2 (10.0.3.0/24), respectivamente. 
+As sub-redes públicas estão associadas à tabela de rotas públicas e as sub-redes privadas estão associadas à tabela de rotas privadas. 
+A principal diferença é que a sub-rede pública 1 e a sub-rede privada 1 são criadas na mesma zona de disponibilidade, ou seja; AZ-1 e sub-rede privada e sub-rede pública 2 são criadas em AZ-2.
+
+Novos recursos são criados após a atualização da pilha.

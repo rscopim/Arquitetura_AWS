@@ -1,0 +1,7 @@
+            Criando sub-redes usando a pilha cloudformation do modelo VPC II
+Cliquei em Serviços no menu superior e clique em CloudFormation .
+Selecionei a pilha LabCFvpc e clique em Update.
+Selecionei substituir modelo atual e colei o URL abaixo no URL do Amazon S3.
+Tags- Nenhuma alteração necessária nesta página, clique no botão Avançar . 
+Revisei os detalhes da pilha e cliquei em enviar.
+Cliquei em Eventos para ser exibido UPDATE_IN_PROGRESS.
