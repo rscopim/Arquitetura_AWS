@@ -45,3 +45,13 @@ Resultados
 2 - Em outras palavras, a pilha consiste em um ou mais modelos.
 3 - A vantagem da pilha é que é fácil criar, excluir ou atualizar a coleção de recursos.
 4 - As pilhas avançadas possuem uma pilha aninhada que contém uma coleção de pilhas.
+
+                Você sabe?
+O AWS CloudFormation fornece um recurso poderoso chamado recursos personalizados, que permite estender os recursos dos modelos do CloudFormation adicionando seus próprios tipos de recursos. 
+Esses recursos personalizados podem ser criados e gerenciados usando funções do AWS Lambda.
+
+                CONCLUSÃO DAS TAREFAS EXECUTADAS.
+Foi implantado com êxito um modelo do AWS CloudFormation que cria uma Amazon VPC.
+Foi examinado com sucesso os componentes do modelo.
+Foi atualizado com sucesso uma pilha do CloudFormation.
+Foi examinado com êxito um modelo com o AWS CloudFormation Designer.
