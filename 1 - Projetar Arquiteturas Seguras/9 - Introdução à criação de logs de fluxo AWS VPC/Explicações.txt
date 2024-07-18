@@ -1,0 +1,29 @@
+                Criado um log do CloudWatch
+Nesta desafio foi criado um grupo de logs do CloudWatch chamado "VPClogs" usando o serviço CloudWatch. 
+Nome do grupo de log: VPClogs.
+
+                Criando uma VPC      
+A VPC foi criada para ser anexado o grupo de logs criado no CloudWatch.
+Tag Name: VPCfluxo. 
+Bloco CIDR IPv4: 10.1.0.0/16. 
+Outras opções ficou como padrão.
+
+
+                Criado registros de fluxo de VPC
+Nesta desafio foi criado logs de fluxo de VPC para sua VPC usando o AWS Management Console.
+Nome: FluxoLogsVPC.
+Selecionado o “Filtro” como Aceitar.
+Selecionado o “Destino” como Enviar para CloudWatch Logs. 
+Escolhido os “ VPClogs ” do CloudWatch Logs criados acima.
+Escolhida a função IAM “ EC2Role_<RANDOM_NUMBER> ”.
+Demais opções como padrão.
+
+Depois que os logs de fluxo forem criados, role para baixo e clique em Logs de fluxo.
+
+                Você sabe?
+Os AWS VPC Flow Logs podem ser usados ​​não apenas para monitoramento de rede e análise de segurança, mas também para solução de problemas e análise de desempenho de seu ambiente Amazon Virtual Private Cloud (VPC).
+
+                CONCLUSÃO DAS TAREFAS EXECUTADAS.
+Foi criado com sucesso o CloudWatch Logs.
+Foi criada a VPC com sucesso.
+Foi criado com êxito os registros de fluxo de VPC.

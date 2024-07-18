@@ -1,0 +1,11 @@
+                Nuvem Privada Virtual Amazon
+
+A Amazon Virtual Private Cloud (Amazon VPC) permite provisionar uma seção logicamente isolada da Nuvem AWS onde você pode executar recursos da AWS em uma rede virtual definida por você. 
+Você tem controle total sobre seu ambiente de rede virtual, incluindo seleção de seu próprio intervalo de endereços IP, criação de sub-redes e configuração de tabelas de rotas e gateways de rede.
+
+Você pode usar IPv4 e IPv6 em sua VPC para obter acesso fácil e seguro a recursos e aplicativos.
+
+Você pode personalizar facilmente a configuração de rede da sua Amazon VPC. Por exemplo, você pode criar uma sub-rede pública para seus servidores Web que têm acesso à Internet.
+
+Você também pode colocar seus sistemas de back-end, como bancos de dados ou servidores de aplicativos, em uma sub-rede privada, sem acesso à Internet. 
+Você pode usar várias camadas de segurança, incluindo grupos de segurança e listas de controle de acesso à rede, para ajudar a controlar o acesso às instâncias do Amazon EC2 em cada sub-rede.           
