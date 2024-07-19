@@ -1,0 +1,182 @@
+Tarefa 2: crie uma VPC
+Certifique-se de estar na região  de N.Virginia  .
+Navegue até  VPC  clicando no  menu Serviços  na parte superior e, em seguida, clique em  VPC  na  seção Rede e entrega de conteúdo  .
+Para criar uma  VPC,  clique em  Suas VPCs,  presente na  seção VIRTUAL PRIVATE CLOUD  na barra lateral esquerda.
+Crie uma nova VPC clicando no  botão Criar VPC  .
+Selecione  somente VPC.
+Tag de nome - opcional:Insira MyVPC
+Bloco CIDR IPv4:  digite 192.168.0.0/26 
+Bloco CIDR IPv6: Nenhum bloco CIDR IPv6
+Locação:  Padrão
+Clique no  botão Criar VPC  para criar o  MyVPC .
+A VPC foi criada agora.
+Tarefa 3: crie e anexe um gateway da Internet com VPC personalizado
+Por padrão, as instâncias executadas em uma VPC não podem se comunicar com a Internet. Para permitir o acesso à Internet, um gateway de Internet precisava ser conectado à VPC.
+
+Clique em  Gateways de Internet  no menu esquerdo e clique em  Criar gateway de Internet .
+Tag de nome:  Digite  MyInternetGateway
+
+Clique em  Criar gateway de internet .
+
+     3. Selecione o gateway da Internet que você criou na lista.
+
+Clique em  Ações .
+
+Selecione  Anexar à VPC .
+VPCs disponíveis: selecione  MyVPC
+E clique no  botão Anexar gateway de internet  .
+
+    6. O gateway da Internet agora está conectado ao MyVPC.
+
+    Tarefa 4: Crie uma sub-rede pública e privada
+Para criar uma  sub-rede  clique em Sub-redes  presentes na  seção VIRTUAL PRIVATE CLOUD  na barra lateral esquerda.
+
+Clique no  botão Criar sub-rede  .
+No ID da VPC, selecione MyVPC .
+Crie a primeira sub-rede, você usará esta sub-rede para iniciar instâncias públicas, esta sub-rede será associada à tabela de rotas principal da VPC:
+
+Selecione  MyVPC  no menu suspenso.
+
+Nome da sub-rede:  Insira a sub-rede pública 
+
+Zona de disponibilidade: Selecione  Leste dos EUA (Norte da Virgínia) / us-east-1a
+
+Bloco CIDR IPV4:  Digite 192.168.0.1/27 
+
+Clique no  botão Criar sub-rede  para criar a sub-rede.
+Crie outra sub-rede, clique no  botão Criar sub-rede  .
+
+    6. A segunda será chamada de sub-rede privada, você usará esta sub-rede para iniciar instâncias privadas, esta sub-rede será associada a uma tabela de rotas personalizada da mesma VPC:
+
+Selecione  MyVPC  no menu suspenso.
+
+Nome da sub-rede:  Insira a sub-rede privada 
+
+Zona de disponibilidade: Selecione  Leste dos EUA (Norte da Virgínia) / us-east-1b
+
+Bloco CIDR IPV4:  Digite 192.168.0.32/27 
+
+     7. Por fim, clique no  botão Criar Sub-rede  .
+
+     8. Ambas as sub-redes foram criadas.
+
+
+Tarefa 5: Configurar a sub-rede Pública para permitir a atribuição automática de endereço IPv4 público
+Para modificar as configurações de atribuição automática de IP para a sub-rede Pública, faça o seguinte:
+
+Selecione a  sub-rede pública
+
+Clique no   botão Ações
+
+Escolha  Editar configurações de sub-rede  nas opções.
+ Marque a opção  Habilitar atribuição automática de endereço IPv4 público  em  Atribuição automática de configurações de IP.
+
+ Clique no botão Salvar  e a modificação será feita agora.
+
+Tarefa 6:  Crie uma tabela de rotas para a sub-rede pública
+Nesta tarefa, vamos criar tabelas de rotas públicas e associá-las à sub-rede. 
+
+Vá para  Tabelas de rotas  no menu esquerdo e clique no  botão Criar tabela de rotas  .
+
+Nome:  Insira  PublicRouteTable
+
+VPC:  selecione  MyVPC  na lista.
+
+Clique no  botão Criar tabela de rotas . 
+Repita as mesmas etapas para criar uma tabela de rotas para a sub-rede privada.
+
+Nome:  Insira  PrivateRouteTable
+
+VPC:  selecione  MyVPC  na lista.
+
+Clique no  botão Criar tabela de rotas  .
+
+Agora iremos  associar as sub-redes  às tabelas de rotas.
+
+Selecione  PublicRouteTable  e vá para a  guia Associações de sub-rede  .
+
+Clique em  Editar associações de sub-rede.
+
+Selecione  MyPublicSubnet  na lista.
+
+Clique no  botão Salvar associações  .
+Selecione  PrivateRouteTable  e vá para a  guia Associações de sub-rede  .
+
+Clique em  Editar associações de sub-rede .
+
+Selecione  MyPrivateSubnet  na lista.
+
+Clique no  botão Salvar associações . 
+
+Certifique-se de não associar nenhuma sub-rede à  Main Route Table .
+
+PublicRouteTable : adicione uma rota para permitir o tráfego da Internet para a VPC.
+
+Selecione  PublicRouteTable.
+
+Vá para  a aba Rotas  , clique em  Editar rotas  e na próxima página, clique no  botão Adicionar rota  .
+
+Especifique os seguintes valores: 
+
+Destino:  Digite  0.0.0.0/0
+
+Alvo:  Selecione  Internet Gateway  no menu suspenso para selecionar  MyInternetGateway .
+
+Clique no botão  Salvar alterações . 
+
+Tarefa 7: Crie grupos de segurança
+Neste laboratório, criaremos dois grupos de segurança, o  primeiro será usado para Bastion Host  e o  segundo para instância privada com acesso ao VPC Endpoint for S3.
+
+Para começar a criar grupos de segurança, clique em  Grupos de segurança  , presente na  seção SEGURANÇA  na barra lateral esquerda.
+
+Clique no  botão Criar grupo de segurança 
+
+Preencha os detalhes abaixo em  Detalhes básicos :
+
+Insira  o nome do grupo de segurança  como  Bastion-SG
+
+Insira  Descrição  como  grupo de segurança para o host bastião
+
+Selecione  MyVPC  no  campo VPC  .
+
+Por padrão, nenhuma regra de entrada será permitida e, quando você fizer check-in das regras de saída, haverá apenas uma regra presente que possui um Tipo com  Todo o tráfego  porque  os grupos de segurança são  de natureza estável,  quando a entrada é permitida, a saída também é permitida .
+
+       6. Para adicionar as regras de entrada para o mesmo, clique no  botão Adicionar regra  .
+
+       7. Adicionaremos  3 regras  para o grupo de segurança do host Bastion, ou seja,  SSH, HTTP e HTTPS.
+
+Para a primeira regra, selecione  Type  como  SSH ,  Source  como  Custom  e  insira 0.0.0.0/0
+
+Para a segunda regra, clique no botão Adicionar regra  . Selecione o  Tipo  como  HTTP ,  Fonte  como  Personalizado  e  digite 0.0.0.0/0
+
+Para a terceira regra, clique no  botão Adicionar regra  . Selecione o  Tipo  como  HTTPS ,  Fonte  como  Personalizado  e  digite 0.0.0.0/0
+8. Por fim, clique no  botão Criar grupo de segurança  . 
+
+       9. O grupo de segurança para o host Bastion foi criado.
+10. Clique no  botão Grupos de segurança  , presente na  seção SEGURANÇA  na barra lateral esquerda.
+
+   11. Para criar o segundo grupo de segurança, clique no  botão Criar grupo de segurança  . 
+
+   12. Preencha os detalhes abaixo em  Detalhes básicos :
+
+Insira  o nome do grupo de segurança  como  Endpoint-SG
+
+Insira  a descrição  como  grupo de segurança para endpoint S3
+
+Selecione  MyVPC  no  campo VPC  .
+
+
+
+
+
+
+
+
+
+
+Conclusão e Conclusão
+Foram lançadas duas instâncias EC2, ou seja, instância Bastion e instância Endpoint. Conseguimos fazer o SSH na instância do Endpoint por meio da instância Bastion com sucesso.
+
+Criamos um VPC endpoint para S3 para acessar com segurança os buckets S3 e seus objetos sem acessar a Internet, ou seja, dentro da rede da Amazon por meio da instância Endpoint.
+
+Testamos o VPC endpoint para S3 da instância privada.

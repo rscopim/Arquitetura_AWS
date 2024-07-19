@@ -1,0 +1,8 @@
+2 - Criando e anexando um gateway da Internet com VPC personalizado
+Por padrão, as instâncias executadas em uma VPC não podem se comunicar com a Internet. 
+Para permitir o acesso à Internet, um gateway de Internet precisava ser conectado à VPC.
+
+
+Tag de nome: IGWlab09
+Gateway de internet criado.
+Após a criação o IGWlab09 foi anexado à VPC.   

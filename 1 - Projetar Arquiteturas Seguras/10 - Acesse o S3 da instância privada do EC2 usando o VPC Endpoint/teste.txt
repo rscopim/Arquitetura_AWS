@@ -1,0 +1,262 @@
+
+
+
+
+
+Tarefa 8: Crie um host Bastion (instância EC2 acessível publicamente)
+   1. Navegue até  EC2  clicando no  menu Serviços  na parte superior e, em seguida, clique em  EC2  na  seção Computação  .
+
+   2. Navegue até  Instâncias  no painel esquerdo e clique em  Iniciar instâncias.
+
+
+
+   3. Nome: Digite  Bastion-host.
+
+   4. Para Amazon Machine Image (AMI) :  Pesquise  Amazon Linux 2 AMI  na caixa de pesquisa e clique no  botão  Selecionar 
+
+
+
+     5.  Observação: se houver duas AMIs presentes para Amazon Linux 2 AMI, escolha qualquer uma delas.
+
+     6. Para tipo de instância: selecione  t2.micro
+
+
+
+     7.  Para par de chaves:  selecione  o botão Criar um novo par de chaves 
+
+Nome do par de chaves:  WhizKey
+
+Tipo de par de chaves:  RSA
+
+Formato de arquivo de chave privada:  .pem
+
+Selecione  o botão Criar par de chaves  .
+
+
+
+     9. Nas configurações de rede, clique no   botão Editar :
+
+ VPC: escolha  MyVPC
+
+ Sub-rede: escolha  a sub-rede pública
+
+Atribuir IP público automaticamente:  Habilitar
+
+Selecione  o grupo de segurança existente
+
+Nome do grupo de segurança: Escolha  Bastion-SG
+
+
+
+   10. Mantenha o restante padrão e clique no botão  Iniciar instância .
+
+   11. Selecione  Exibir todas as instâncias  para visualizar a instância que você criou
+
+   12.  Status de inicialização:  sua instância está sendo iniciada. Clique no ID da instância e aguarde a inicialização completa da instância até que o status mude para  Running .
+
+Tarefa 9: Crie uma instância do Endpoint (instância do EC2 acessível de forma privada)
+   1. Navegue até  EC2  clicando no  menu Serviços  na parte superior e, em seguida, clique em  EC2  na  seção Computação  .
+
+  2. Navegue até  Instâncias  no painel esquerdo e clique em  Iniciar instâncias.
+
+  3. Nome: Insira  instância do endpoint.
+
+  4.  Para Amazon Machine Image (AMI):  Pesquise  Amazon Linux 2 AMI  na caixa de pesquisa e clique no  botão Selecionar  .
+
+
+
+     5.  Observação: se houver duas AMIs presentes para Amazon Linux 2 AMI, escolha qualquer uma delas.
+
+     6. Para tipo de instância: selecione  t2.micro
+
+
+
+     7.  Para Par de chaves:  Selecione o par de chaves criado durante a tarefa anterior.
+
+     8. Nas configurações de rede, clique no   botão Editar :
+
+ VPC: escolha  MyVPC
+
+ Sub-rede:  Sub-rede Privada
+
+Selecione  o grupo de segurança existente
+
+Nome do grupo de segurança: Escolha  Endpoint-SG
+
+
+
+    9. Mantenha o restante padrão e clique no botão  Iniciar instância .
+
+   10. Selecione  Exibir todas as instâncias  para visualizar a instância que você criou
+
+   11.  Status de inicialização:  sua instância está sendo iniciada. Clique no ID da instância e aguarde a inicialização completa da instância até que o status mude para  Running .
+
+   12. Navegue até  Instâncias  e aguarde de 1 a 2 minutos (até que o   status  da instância do Endpoint mude de pendente  para  em execução  )
+
+
+
+Tarefa 10: SSH na instância do Endpoint (acessível de forma privada) por meio do host 
+Tarefa 10: SSH na instância do Endpoint (acessível de forma privada) por meio do host Bastion
+SSH na instância do Bastion  usando a chave PEM do Bastion:  WhizKey.pem
+
+Para fazer SSH na  instância do Endpoint por meio da instância do Bastion , precisamos que  WhizKey.pem  esteja presente na  instância do Bastion.
+
+Abra o  arquivo WhizKey.pem  em seu sistema local e  copie o conteúdo do texto .
+
+Navegue até a instância Bastion e crie um arquivo chamado  WhizKey.pem  usando o comando abaixo:  
+
+vi WhizKey.pem
+Cole o conteúdo e salve-o pressionando  shift+dois pontos seguido de :wq!  e depois entre para salvar sua chave privada.
+
+Certifique-se de ter alterado a  permissão do arquivo de chave para 400 . Você pode alterar a permissão usando o comando abaixo:
+
+chmod 400 WhizKey.pem
+
+
+Agora  você pode fazer login nos servidores web  usando a chave privada copiada para o servidor bastião com a ajuda dos comandos abaixo. 
+
+Observação:  você  não tem IPs públicos  para a instância do Endpoint, pois os criamos em uma  sub-rede privada.
+
+Sintaxe  : ssh -i WhizKey.pem ec2-user@< IP privado da instância do endpoint >
+
+Exemplo:  ssh -i WhizKey.pem ec2-user@192.168.0.55.
+
+Quando solicitado tipo de confirmação:  sim
+
+
+
+Embora a função IAM atribuída tenha acesso para leitura do S3, a listagem do bucket por meio do comando AWS CLI falhou, informando tempo limite de conexão no endpoint do S3.
+
+
+Como o grupo de segurança desta instância só tem permissão para fazer SSH, a execução de qualquer outro comando falhará.
+
+Vamos adicionar a permissão para acessar os endpoints S3 usando o VPC Endpoint for S3.
+
+T arefa 11: Crie um VPC Endpoint para S3, anexe-o à tabela de rotas da sub-rede privada
+Navegue até  VPC  clicando no  menu Serviços  na parte superior e, a seguir, clique em  VPC  na  seção Rede e entrega de conteúdo  .
+
+Clique em  Endpoints   presentes na  seção VIRTUAL PRIVATE CLOUD  na barra lateral esquerda. 
+
+Clique no botão Criar endpoints .
+
+
+
+Certifique-se de que a  categoria Serviço  esteja selecionada para  serviços AWS.  Na  barra de pesquisa  do  nome do serviço  ,  digite s3 e pressione Enter
+
+
+
+    5. O endpoint de  Type ,  Gateway  com nome de serviço como  com.amazonaws.us-east-1.s3  será listado.
+
+    6. Altere a VPC e selecione MyVPC .
+
+
+
+   7. Selecione o endpoint  e marque a opção Tabela de Rotas com o nome PrivateRouteTable.
+
+
+    8. Por fim, clique no  botão  Criar endpoint .
+
+    9. Um  endpoint  será criado.
+
+   10. Clique no  botão Fechar  e, em alguns instantes, você verá que o  endpoint  será listado.
+
+
+
+   11. (Opcional) Para verificar se o endpoint está associado à tabela de rotas personalizada (RT para sub-rede privada) ou não. 
+
+   12. Vá para as tabelas de rotas, selecione a tabela de rotas personalizada e clique nas  opções de rotas  abaixo, você verá uma entrada de S3. 
+
+Tarefa 12: liste todos os buckets S3 e seus objetos
+Navegue de volta para sua instância Bastion e insira  aws configure. 
+
+Chave de acesso: cole a chave de acesso fornecida a você.
+
+Chave secreta: cole a chave secreta fornecida a você.
+
+
+
+Nome da região padrão: us-east-1
+
+Formato de saída padrão: Digite  [ENTER]
+
+     2. Liste todos os buckets usando o seguinte comando AWS CLI:  
+
+aws s3 ls
+
+
+     3. Liste os objetos do bucket S3 começando com o nome whizlabs.
+
+     4. Substitua o nome do bucket S3 pelo comando abaixo  
+
+aws s3 ls s3://whizlabs
+Você sabe?
+O VPC Endpoint Service permite conectividade privada e você pode evitar cobranças de transferência de dados associadas ao tráfego público da Internet. Ao utilizar VPC endpoints, você pode reduzir significativamente os custos de transferência de dados, especialmente se houver grandes volumes de dados fluindo entre seus serviços VPC e AWS.
+
+Tarefa 13: Teste de Validação
+Assim que as etapas do laboratório forem concluídas, clique no  botão Validação  no painel do lado direito.
+
+Isso validará os recursos na conta da AWS e mostrará se você concluiu este laboratório com êxito ou não.
+
+Exemplo de saída: 
+
+
+
+Tarefa 14: Excluir recursos da AWS
+Excluir endpoint VPC
+Navegue até  VPC  clicando no  menu Serviços  na parte superior e, a seguir, clique em  VPC  na  seção Rede e entrega de conteúdo  .
+
+Clique em  Endpoints  presentes na  seção VIRTUAL PRIVATE CLOUD  na barra lateral esquerda.
+
+Para excluir o VPC endpoint, execute as seguintes tarefas:
+
+Selecione o ponto final,
+
+Clique no botão Ações ,
+
+Escolha a opção Excluir endpoints VPC
+
+            
+
+     4. Confirme a exclusão digitando  delete. 
+
+      5. O endpoint será excluído imediatamente. 
+
+Encerramento da instância EC2
+Navegue até  EC2  clicando no  menu Serviços  na parte superior e, a seguir, clique em  EC2  na  seção Computação .
+
+Clique em Instâncias no painel esquerdo.
+
+As instâncias EC2 serão listadas aqui.
+
+
+
+    4. Para encerrar ambas as instâncias presentes, execute as seguintes tarefas:
+
+Selecione ambas as instâncias EC2
+
+Clique no estado da instância
+
+Escolha encerrar a instância
+
+
+
+    5. Para confirmar o encerramento de ambas as instâncias EC2 selecionadas, clique no botão Terminar .
+                                                                          
+
+   6. A instância será encerrada em cerca de um minuto.
+
+
+
+Conclusão e Conclusão
+Lançamos duas instâncias EC2, ou seja, instância Bastion e instância Endpoint. Conseguimos fazer o SSH na instância do Endpoint por meio da instância Bastion com sucesso.
+
+Criamos um VPC endpoint para S3 para acessar com segurança os buckets S3 e seus objetos sem acessar a Internet, ou seja, dentro da rede da Amazon por meio da instância Endpoint.
+
+Testamos o VPC endpoint para S3 da instância privada.
+
+Finalizar laboratório
+Saia da conta AWS.
+
+Você concluiu o laboratório com êxito.
+
+Depois de concluir as etapas, clique em  End Lab  no painel do whizlabs.

@@ -1,0 +1,29 @@
+5 - Criando uma tabela de rotas para a sub-rede pública.
+
+Neste passo vamos criar tabelas de rotas públicas e associá-las à sub-rede.
+- Nome: TabelaPublica
+- VPC: VPClab09
+- Tabela de rotas criada.
+
+Repeti a mesma etapa para criar uma tabela de rotas para a sub-rede privada.
+- Nome: TabelaPrivada
+- VPC: VPClab09
+- Tabela de rotas criada.
+
+Logo depois associei as sub-redes às tabelas de rotas.
+Selecione  TabelaPublica e fui para a guia Associações de sub-rede.
+Cliquei em  Editar associações de sub-rede.
+Selecionei Sub-rede-Publica na lista.
+Salvei as associações.
+
+Selecione TabelaPublica e fui para a guia Associações de sub-rede.
+Cliquei em  Editar associações de sub-rede.
+Selecionei Sub-rede-Privada na lista.
+Salvei as associações. 
+
+Na TabelaPublica adicionei uma rota para permitir o tráfego da Internet para a VPC.
+Selecionei TabelaPublica.
+Fui para a aba Rotas, cliquei em  Editar rotas e na próxima página, cliquei no botão Adicionar rota.
+Especifiquei os seguintes valores:
+Destino: 0.0.0.0/0
+Alvo: Internet Gateway no menu suspenso para selecionar IGW09.

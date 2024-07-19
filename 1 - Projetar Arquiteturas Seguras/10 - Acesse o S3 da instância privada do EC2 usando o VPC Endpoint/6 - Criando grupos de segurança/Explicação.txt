@@ -1,0 +1,27 @@
+6 - Criando grupos de segurança
+Nesta etapa, criaremos dois grupos de segurança, o primeiro será usado para Bastion Host e o segundo para instância privada com acesso ao VPC Endpoint for S3.
+
+
+        1º GRUPO DE SEGURANÇA BASTION HOST.
+- Nome do grupo de segurança: Bastion-SG
+- Descrição: grupo de segurança Bastion Host
+- VPC: VPClab09
+
+** Por padrão, nenhuma regra de entrada será permitida e, quando você fizer check-in das regras de saída, haverá apenas uma regra presente que possui um Tipo com  Todo o tráfego  porque  os grupos de segurança são  de natureza estável,  quando a entrada é permitida, a saída também é permitida .
+       
+- Adicionaremos 3 regras para o grupo de segurança do host Bastion, ou seja, SSH, HTTP e HTTPS.
+- Para a primeira regra, selecionei TIPO como  SSH , ORIGEM como PERSONALIZADO e inseri 0.0.0.0/0.
+- Para a segunda regra, cliquei no botão Adicionar regra. Selecionei o TIPO como HTTP, ORIGEM como PERSONALIZADO e  digitei 0.0.0.0/0.
+- Para a terceira regra, cliquei no botão Adicionar regra. Selecionei o TIPO como HTTPS, ORIGEM como PERSONALIZADO e digitei 0.0.0.0/0.
+Por fim o grupo de segurança para o Bastion Host foi criado.
+
+
+        1º GRUPO DE SEGURANÇA ENDPOINT HOST.
+- Nome do grupo de segurança: Endpoint-SG
+- Descrição: grupo de segurança para Endpoint S3
+- VPC: VPClab09
+
+- Adicionaremos 1 regra para o grupo de segurança de endpoint S3, ou seja, apenas SSH. Aqui nossa fonte será o grupo de segurança do Bastion Host.
+- Será selecionado o ID do grupo de segurança: Bastion-SG
+- Para a regra, selecionei TIPO como SSH, ORIGEM como PERSONALIZADO e digitei Bastion, o grupo de segurança de hosts Bastion será mostrado, selecionei esse grupo de segurança.
+Por fim o grupo de segurança para o host Bastion foi criado.

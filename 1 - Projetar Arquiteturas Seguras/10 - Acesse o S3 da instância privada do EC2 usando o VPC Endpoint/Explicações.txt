@@ -1,0 +1,15 @@
+                Instância Bastion host
+Um Bastion host é um sistema exposto à Internet.
+Em termos de segurança, Bastion é o único servidor exposto à Internet e deve ser altamente protetor contra ataques maliciosos.
+Um host Bastion também é conhecido como Jump Box. É um computador que atua como um servidor proxy e que permite que a máquina cliente se conecte ao servidor remoto.
+Neste estudo, estamos usando a instância Bastion como uma instância pública para fazer SSH em uma instância privada.
+
+                Endpoint VPC para S3
+O VPC Endpoint nos permite conectar com segurança seu VPC e serviços AWS suportados com tecnologia AWS PrivateLink. 
+AWS PrivateLink é um serviço que permite acessar serviços da AWS usando endereços IP privados. 
+Neste caso, o tráfego não sai da rede da Amazon.
+O VPC endpoint não requer um gateway NAT, uma instância NAT, um gateway de Internet ou qualquer serviço VPN para acessar os serviços da AWS.
+Existem dois tipos de endpoints VPC: gateway e interface.
+O endpoint VPC para S3 está no endpoint Gateway.
+Quando você cria um VPC endpoint para S3, ele solicita a tabela de rotas e adiciona a lista de prefixos a essa tabela de rotas. 
+Você não pode modificar/excluir a entrada presente na tabela de rotas, criada pelo Endpoint.

@@ -1,0 +1,3 @@
+4 - Configurando a sub-rede Pública para permitir a atribuição automática de endereço IPv4 público.
+
+Foi editar a configurações de sub-rede na opção Habilitar atribuição automática de endereço IPv4 público.

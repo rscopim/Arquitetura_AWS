@@ -1,0 +1,14 @@
+3 - Criando uma sub-rede pública e privada
+
+Foi criado a primeira sub-rede, esta sub-rede será uasada para iniciar instâncias públicas, esta sub-rede será associada à tabela de rotas principal da VPC:
+- Nome da sub-rede: Sub-rede-pública
+- Zona de disponibilidade: Leste dos EUA (Norte da Virgínia) / us-east-1a
+- Bloco CIDR IPV4: 192.168.0.1/27 
+- Sub-rede pública criada.   
+
+A segunda será chamada de Sub-rede-Privada, esta sub-rede será usada para iniciar instâncias privadas, esta sub-rede será associada a uma tabela de rotas personalizada da mesma VPC:
+- Nome da sub-rede: Sub-rede-Privada
+- Zona de disponibilidade: Leste dos EUA (Norte da Virgínia) / us-east-1b
+- Bloco CIDR IPV4: 192.168.0.32/27 
+
+Ambas as sub-redes foram criadas.

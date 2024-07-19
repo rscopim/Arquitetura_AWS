@@ -1,0 +1,7 @@
+1 - Criando uma VPC
+Selecionado somente VPC.
+Tag de nome: VPClab09
+Bloco CIDR IPv4: 192.168.0.0/26 
+Bloco CIDR IPv6: Nenhum bloco CIDR IPv6
+Locação:  Padrão
+A VPC foi criada.
