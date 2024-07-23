@@ -1,0 +1,47 @@
+        WAF (firewall de aplicativos da web)
+O AWS WAF é um firewall de aplicativos web que ajuda a proteger seus aplicativos web contra explorações comuns da web que podem afetar a disponibilidade e comprometer a segurança.
+
+O AWS WAF oferece controle sobre como o tráfego chega às suas aplicações, permitindo criar regras de segurança que bloqueiam padrões de ataque comuns, como injeção de SQL e scripts entre sites.
+
+Ele só permite que a solicitação chegue ao servidor com base nas regras ou padrões que você define.
+
+Os usuários criam suas próprias regras e especificam as condições que o AWS WAF procura nas solicitações da web recebidas.
+
+O custo do WAF é apenas para o que você usa. 
+
+O preço é baseado em quantas regras você implanta e em quantas solicitações da Web seu aplicativo recebe.
+
+Por exemplo, você pode implantar o AWS WAF no Amazon CloudFront com um Application Load Balancer na frente de seus servidores web ou servidores em execução no EC2.
+
+        Recursos do WAF
+Filtragem de tráfego da Web usando regras personalizadas 
+Você pode criar suas próprias regras, dependendo de suas necessidades, seja para bloquear ou permitir solicitações de entrada e saída. Você também pode personalizar a string que aparece na sua solicitação da web.
+
+ Bloqueio de solicitações maliciosas
+Você também pode configurar regras no AWS WAF para identificar e bloquear ameaças de solicitações da Web, como injeções de SQL e scripts entre sites.
+
+Ajuste suas regras e monitore o tráfego                                
+O AWS WAF também nos permite revisar nossas regras e personalizá-las para evitar que novos ataques cheguem ao servidor.
+
+Descrição do laboratório
+Balanceador de carga de aplicativo (ALB)
+Load Balancer  é um  serviço  que  permite distribuir o aplicativo de entrada ou o tráfego de rede entre vários destinos , como instâncias do Amazon  EC2  , contêineres e endereços IP, em várias zonas de disponibilidade.
+
+ALB é usado para rotear o tráfego HTTP e HTTPS entre os destinos com base nas regras anexadas ao grupo de destino.
+
+As regras  determinam qual ação será tomada quando uma regra corresponder à solicitação de um cliente.
+
+O  grupo-alvo  é usado para rotear solicitações entre  destinos registrados  como parte de uma regra de ação. Os grupos-alvo consistem em um protocolo e uma porta de destino. Também podemos configurar verificações de integridade para monitorar o status do grupo-alvo. Um único ALB pode rotear o tráfego para vários grupos-alvo.
+
+Os destinos  consistem em instâncias do EC2 registradas no ALB como parte de um grupo de destino.
+
+Servidores web
+Dois servidores web são iniciados na sub-rede Privada para lidar com a solicitação web.
+
+A solicitação aos servidores web é compartilhada usando o ALB.
+
+Os servidores Web estão anexados ao grupo ALB Target.
+
+Os servidores são pré-instalados com HTTPD em ambos os servidores e possuem as páginas de teste  RESPONSE COMING FROM SERVER 1  e  RESPONSE COMING FROM SERVER 2  respectivamente.
+
+Eles são anexados a um grupo de segurança via porta 80 que permite o tráfego web proveniente do ALB.

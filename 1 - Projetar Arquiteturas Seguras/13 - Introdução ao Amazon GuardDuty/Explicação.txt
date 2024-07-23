@@ -1,0 +1,26 @@
+        O que é AWS GuardDuty?
+O Amazon GuardDuty é um serviço de detecção de ameaças que monitora continuamente suas contas e cargas de trabalho da AWS em busca de atividades maliciosas e fornece descobertas de segurança detalhadas para visibilidade e correção.
+
+O GuardDuty usa aprendizado de máquina, detecção de anomalias e inteligência de ameaças para identificar e priorizar ameaças potenciais. Ele pode detectar uma ampla gama de ameaças, incluindo:
+
+- Acesso não autorizado aos seus recursos da AWS
+- Atividade de rede suspeita
+- Infecções por malware
+- Exfiltração de dados
+- Aquisições de conta
+ 
+Aqui estão alguns dos benefícios de usar o Amazon GuardDuty:
+
+- Monitoramento contínuo: o GuardDuty monitora continuamente seu ambiente AWS em busca de atividades maliciosas, 24 horas por dia, 7 dias por semana. Isso ajuda você a identificar ameaças antecipadamente, antes que elas possam causar danos.
+- Descobertas de segurança detalhadas: o GuardDuty fornece descobertas de segurança detalhadas que incluem informações sobre a ameaça, os recursos afetados e as ações recomendadas. Isso facilita a investigação e a correção de ameaças.
+- Integração com outros serviços da AWS: o GuardDuty integra-se a outros serviços da AWS, como AWS Security Hub e Amazon Detective, para ajudar você a investigar e responder a ameaças.
+- Econômico: o GuardDuty é uma maneira econômica de proteger seu ambiente AWS contra ameaças. Não há custo inicial e você paga apenas pelos recursos que usar.
+
+Conclusão e Conclusão 
+Você usou com sucesso o console de gerenciamento da AWS para habilitar o Amazon GuardDuty. 
+
+Você explorou com êxito as opções do Amazon GuardDuty Service, como configurações, listas e contas.
+
+Você gerou alguns resultados de amostra e os revisou.
+
+Você desativou o Amazon GuardDuty com êxito.

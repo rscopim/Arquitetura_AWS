@@ -1,0 +1,34 @@
+1 - Visão Geral do AWS VPC
+Amazon Virtual Private Cloud (VPC) é um serviço que permite aos usuários provisionar uma seção isolada da nuvem AWS onde podem lançar recursos AWS em uma rede virtual que eles próprios definem. A VPC oferece controle total sobre o ambiente de rede, incluindo a seleção de seu próprio intervalo de endereços IP, a criação de sub-redes, a configuração de tabelas de roteamento e a configuração de gateways de rede. A importância da VPC no ecossistema AWS reside no fato de proporcionar uma camada robusta de isolamento e segurança, garantindo que os recursos estejam segregados e protegidos de outros ambientes de rede.
+
+2 - Introdução às Listas de Controle de Acesso à Rede (NACLs)
+As Listas de Controle de Acesso à Rede (NACLs) em uma AWS VPC atuam como um firewall no nível da sub-rede, controlando o tráfego de entrada e saída com base em regras definidas pelo usuário. Essas regras especificam se o tráfego de rede é permitido ou negado para e de sub-redes individuais dentro da VPC. As NACLs são associadas a sub-redes e são avaliadas em ordem numérica ascendente quando o tráfego é direcionado para ou a partir de uma sub-rede.
+
+3 - Importância dos NACLs
+Os NACLs desempenham um papel crucial no aprimoramento da postura de segurança de uma AWS VPC. Eles fornecem uma camada adicional de defesa que complementa os grupos de segurança, permitindo um controle mais granular sobre os fluxos de tráfego de rede. Enquanto os grupos de segurança atuam no nível da instância, os NACLs operam no nível da sub-rede, permitindo que administradores definam políticas de segurança abrangentes para todo o tráfego que atravessa as fronteiras da sub-rede.
+
+4 - Objetivo do Laboratório
+O principal objetivo do laboratório AWS VPC NACL é proporcionar aos participantes uma experiência prática na configuração de regras de NACL e na compreensão de seu impacto no tráfego de rede. Os participantes aprenderão como definir, aplicar e testar regras de NACL para controlar o acesso a sub-redes dentro de uma VPC, bem como observar como essas regras afetam o comportamento do tráfego de rede.
+
+5 - Ambiente de Laboratório
+O ambiente de laboratório inclui uma VPC pré-configurada com várias sub-redes e instâncias AWS que os participantes usarão durante o exercício. Além disso, serão utilizadas ferramentas e serviços adicionais, como o AWS Management Console e AWS CLI, para facilitar a configuração e o teste das regras de NACL. Os participantes terão acesso a todos os recursos necessários para executar as tarefas de laboratório e observar os efeitos das configurações de NACL.
+
+6 - Tarefas de Laboratório
+As tarefas específicas do laboratório incluem:
+
+- Criação de NACLs e definição de regras de entrada e saída.
+- Associação de NACLs a sub-redes específicas.
+Teste do impacto das regras de NACL no tráfego de rede.
+- Observação de logs e métricas para entender o comportamento do tráfego.
+- Solução de problemas comuns relacionados às regras de NACL.
+
+7 - Resultados de Aprendizagem
+Os principais resultados de aprendizagem do AWS VPC NACL Lab incluem:
+
+- Compreensão aprofundada da funcionalidade e propósito das NACLs.
+- Habilidade aprimorada em configurar redes seguras dentro de uma AWS VPC.
+- Familiaridade com a solução de problemas relacionados a NACLs.
+- Capacidade de implementar políticas de segurança robustas no nível da sub-rede.
+
+8 - Conclusão
+As NACLs são fundamentais para proteger VPCs na AWS, oferecendo uma camada adicional de controle de tráfego e segurança. O AWS VPC NACL Lab proporciona uma experiência prática valiosa, permitindo que os participantes compreendam melhor como configurar e gerenciar NACLs para proteger suas redes. Encoraja-se os participantes a se envolverem ativamente com o laboratório, explorando diferentes cenários e regras para fortalecer seu entendimento sobre a importância e aplicação das NACLs na AWS.

@@ -1,0 +1,40 @@
+        O que é um gateway de trânsito?
+O AWS Transit Gateway ajuda você a conectar várias VPCs e redes locais por meio de um hub central. 
+Ele simplifica sua rede com VPCs e conexões locais e resolve o problema de relacionamentos de peering complexos.
+Com o peering de VPC usando o gateway Transit, seus dados são sempre criptografados e não usam mais a Internet pública para comunicação.
+- Benefícios de usar o gateway de trânsito:
+ - Fácil de conectar
+ - Controle total
+ - Maior segurança
+ - Recurso multicast
+
+- Razões para usar o gateway de trânsito em peering de VPC:
+ - O emparelhamento de VPC não oferece suporte ao peering transitivo, o que significa que você só pode emparelhar duas VPC por vez.
+ - Para emparelhar sua VPC com uma rede local, você não pode usar o peering de VPC. O gateway de trânsito oferece suporte à conexão de redes locais.
+
+- Limites do gateway de trânsito:
+ - Por gateway de trânsito, você pode ter 20 tabelas de rotas de gateway de trânsito.
+ - Por gateway de trânsito, você pode ter 10.000 rotas.
+ - Por gateway de trânsito, pode haver 50 anexos de gateway de trânsito.
+ - Por VPC, você pode ter cinco gateways de trânsito exclusivos.
+
+        Como o Transit Gateway pode ajudá-lo a simplificar sua rede?
+- O Transit Gateway atua como um roteador em nuvem que oferece suporte à conexão com os seguintes recursos:
+ - Amazon VPC
+ - Conexão VPN com Gateway do Cliente
+ - Gateway do AWS Direct Connect
+
+- Sem gateway de trânsito: 
+ - O peering de VPC pode ter apenas um relacionamento um para um entre duas VPCs. A complexidade aumenta à medida que você dimensiona o número de conexões.
+ - A manutenção da tabela de rotas é outro grande desafio quando você está escalando, você deve manter a tabela de rotas com rotas para VPC e conexão com a rede local usando um gateway de rede separado para cada nova conexão.		
+
+- Com gateway de trânsito:
+ - Para interconectar o Amazon VPC com uma rede local, podemos usar o Transit Gateway.
+ - A rede é padronizada e facilmente escalonável. Com o Transit Gateway, você tem um local para gerenciar e monitorar o número de conexões ativas de cada rede.
+
+        Casos de uso do gateway de trânsito
+- As inscrições podem ser entregues em todo o mundo.
+- Mude seu design de rede de Multi-AZ para Multirregião.
+- Dimensione rapidamente e responda a picos de tráfego sem problemas.
+- Conecte-se a todos os tipos de redes em um só lugar.	
+
