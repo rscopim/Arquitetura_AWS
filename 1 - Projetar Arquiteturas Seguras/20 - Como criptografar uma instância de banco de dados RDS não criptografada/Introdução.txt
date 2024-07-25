@@ -1,0 +1,7 @@
+1 - O Amazon RDS pode criptografar suas instâncias de banco de dados do Amazon RDS.
+
+2 - Quando a opção de criptografia está habilitada para os recursos AWS RDS, podemos criptografar instâncias de banco de dados , backups automatizados , réplicas de leitura , instantâneos e logs .
+
+3 - As instâncias de banco de dados criptografadas do Amazon RDS usam o algoritmo de criptografia AES-256 para criptografar seus dados no servidor que hospeda suas instâncias de banco de dados do Amazon RDS.
+
+4 - A opção Criptografar pode ser habilitada somente quando você está iniciando a instância de banco de dados; ela não pode ser habilitada após a inicialização. No entanto, cópias de snapshots não criptografados podem ser criptografadas.
