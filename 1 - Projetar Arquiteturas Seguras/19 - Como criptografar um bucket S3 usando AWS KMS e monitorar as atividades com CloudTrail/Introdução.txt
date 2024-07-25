@@ -1,0 +1,17 @@
+        Amazon S3
+1 - Muitas empresas hoje precisam da capacidade de coletar, armazenar e analisar seus dados de maneira simples e segura em grande escala.
+2 - Amazon S3 é um  armazenamento de objetos criado para armazenar e recuperar qualquer quantidade de dados de qualquer lugar, seja sites, aplicativos móveis, aplicativos comerciais e dados de sensores ou dispositivos IoT.
+3 - Ele foi projetado para oferecer durabilidade de 99,999999999% e armazenar dados para milhões de aplicativos.
+4 - O Amazon S3 oferece segurança abrangente com criptografia no lado do servidor, criptografia no lado do cliente, políticas de bucket e ACLs.
+
+        Serviço de gerenciamento de chaves da AWS (KMS)
+1 - O AWS KMS é um serviço gerenciado que facilita a criação e o controle das chaves de criptografia usadas para criptografar nossos dados e usa módulos de segurança de hardware (um hardware usado para chaves de criptografia) para proteger a segurança de nossas chaves.
+2 - O AWS KMS está integrado a vários outros serviços da AWS para nos ajudar a proteger os dados que armazenamos enquanto trabalhamos com esses serviços.
+3 - O AWS KMS também está integrado ao AWS CloudTrail para nos fornecer os logs de todo o uso de chaves para nos ajudar a atender às nossas necessidades regulatórias e de conformidade.
+
+        AWS CloudTrail
+1 - AWS CloudTrail é um serviço que permite governança, conformidade, auditoria operacional e auditoria de risco de sua conta AWS.
+2 - Com o CloudTrail, podemos registrar, monitorar continuamente e reter atividades de conta relacionadas a ações em sua infraestrutura AWS.
+3 - O CloudTrail fornece um histórico de todos os eventos e chamadas de API feitas em nossa conta da AWS, incluindo ações realizadas por meio do AWS Management Console, AWS SDKs, ferramentas de linha de comando e outros serviços da AWS.
+4 - Esse histórico de eventos nos ajuda na análise de segurança, rastreamento de alterações de recursos e solução de problemas.
+5 - Sempre que um serviço ou recurso é excluído acidentalmente, o primeiro lugar que procuramos é o AWS CloudTrail.

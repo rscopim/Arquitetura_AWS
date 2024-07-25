@@ -1,0 +1,299 @@
+Tarefa 2: Criando um grupo de segurança para o balanceador de carga
+Navegue até o painel do EC2 e role para baixo até Security Groups . No menu esquerdo, clique em Criar grupo de segurança.
+
+Configure o  grupo de segurança da seguinte forma:
+
+Nome do grupo de segurança: Insira  LoadBalancer-SG
+
+Descrição:  Insira  o grupo de segurança para o balanceador de carga
+
+VPC:  deixe como padrão
+
+Em  Regras de entrada , clique em Adicionar regra  e adicione a porta conforme segue.
+
+Tipo:  Selecione HTTP
+
+Protocolo:  TCP
+
+Faixa de porta : 80 
+
+Fonte: selecione  Personalizado e insira  0.0.0.0/0
+
+Depois de fornecer os detalhes acima, clique em Criar e o grupo de segurança para o balanceador de carga será criado.
+
+Tarefa 3: Etapas para criar os servidores Web
+Certifique-se de estar na  região Leste dos EUA (Norte da Virgínia)  . 
+
+Navegue até Instâncias  no painel esquerdo e clique em Iniciar instância.
+
+Nome: Digite webserver-A
+
+Para Amazon Machine Image (AMI):  Pesquise Amazon Linux 2 AMI na caixa de pesquisa e clique nobotão de seleção  
+
+
+
+Tipo de instância: selecione  t2.micro
+
+       
+
+Para par de chaves: selecione o botão Criar um novo par de chaves
+
+Nome do par de chaves: WhizKey
+
+Tipo de par de chaves: RSA
+
+Formato de arquivo de chave privada: .pem
+
+Selecione o  botão Criar par de chaves .
+Em Configurações de rede, clique no  botão Editar :
+
+Atribuir IP público automaticamente:  Habilitar
+
+Escolha  Criar grupo de segurança
+
+Nome: Digite  webserver-SG
+
+Descrição: Insira  o grupo de segurança para o servidor web
+
+Para adicionar HTTP, clique em Adicionar regra de grupo de segurança
+
+Escolha o tipo : selecione HTTP
+
+Tipo de fonte: personalizado
+
+Fonte: Escolha LoadBalancer-SG
+
+Para adicionar SSH
+
+Escolha o tipo: selecione SSH
+
+Fonte: Escolha qualquer lugar
+
+Clique em  Detalhes avançados .
+
+Na  seção Dados do usuário  , insira o seguinte script para criar uma página HTML servida por um servidor web Apache HTTPD. 
+
+#!/bin/bash 
+sudo su 
+yum update -y       
+yum install -y httpd            
+systemctl start httpd   
+systemctl enable httpd      
+echo "Response coming from server A" > /var/www/html/index.html
+Clique em Iniciar instâncias .
+
+Após alguns minutos, você verá uma nova instância chamada webserver-A em execução.
+
+Repita as etapas acima para criar o Webserver-B selecionando o grupo de segurança existente webserver-SG fornecendo os seguintes detalhes.
+Por favor, selecione o mesmo par de chaves (como você criou para a instância anterior ( Webserver-A) para a instância Webserver-B  . 
+#!/bin/bash         
+sudo su         
+yum update -y       
+yum install -y httpd        
+systemctl start httpd       
+systemctl enable httpd                  
+echo "Response coming from server B" > /var/www/html/index.html
+Navegue até o painel do EC2 para encontrar as duas instâncias (webserver-A e webserver-B) em execução.
+
+
+
+Tarefa 4: Criando um balanceador de carga
+No  console EC2  , navegue até  Target Groups , presente no painel esquerdo em  Load Balancing .
+
+Clique em Criar grupo de destino.
+Para  a Etapa 1, especifique os detalhes do grupo
+Em configurações básicas,
+
+Escolha um grupo-alvo: Escolha  Instâncias
+
+Nome do grupo alvo: Digite  web-server-TG
+
+Mantenha todas as configurações como padrão.
+
+Protocolo de verificação de integridade: HTTP
+
+Caminho da verificação de integridade: Digite  /index.html
+
+Role até o final da página e clique no  botão Avançar  .
+
+Para  a Etapa 2, registrar alvos
+
+Selecione ambas as instâncias e clique no  botão Incluir como pendente abaixo  .
+
+
+As instâncias estarão presentes na parte Revisar metas, tendo o status de saúde como  Pending .
+
+Clique no  botão Criar grupo-alvo  .
+
+O grupo-alvo agora está criado.
+
+No console EC2, navegue até  Load balancers  no painel esquerdo.
+
+Clique em criar balanceador de carga  no canto superior esquerdo para criar um novo balanceador de carga para nossos servidores web.
+
+Selecione o tipo de balanceador de carga : em  Balanceador de carga do aplicativo , clique no  botão Criar  .
+
+Para criar um balanceador de carga de aplicativo,  configure-o  conforme abaixo
+
+Para a   seção Configuração básica ,
+
+Nome: Digite  Web-server-LB
+
+Esquema: Selecione  voltado para a Internet
+
+Tipo de endereço IP: Escolha  IPv4
+
+Para a   seção Mapeamento de rede :
+
+VPC: selecione  padrão
+
+Mapeamentos:  Selecione todas as zonas de disponibilidade presentes
+
+Para a seção Grupos de segurança,
+
+Selecione o   grupo de segurança LoadBalancer-SG  no menu suspenso e  remova o grupo de segurança padrão .
+
+Para a   seção Ouvintes e roteamento ,
+
+O listener já está presente com Protocolo HTTP e Porta 80.
+
+Selecione o grupo de destino web-server-TG  para a opção Ação padrão encaminha para.
+
+Mantenha as tags como padrão e clique no  botão Criar balanceador de carga  . 
+
+Você  criou com êxito o balanceador de carga do aplicativo.  Clique no  botão Exibir balanceadores de carga.
+
+Aguarde de 2 a 3 minutos para que o balanceador de carga se torne  Active .
+
+
+
+Tarefa 5: Testando o Load Balancer
+Navegue até  Load Balancers  e selecione  o  balanceador de carga  que você criou. Em  detalhes , role para baixo, você poderá ver o nome DNS ,  copiar o nome DNS  e colá-lo no navegador
+
+
+
+Atualize o navegador algumas vezes e você verá que a solicitação está sendo atendida em ambos os servidores. Você verá a saída como  RESPONSE COMING FROM SERVER A & RESPONSE COMING FROM SERVER B.  Isso mostra  que a carga é compartilhada entre os dois servidores web por meio do Application Load Balancer.
+
+
+
+
+
+Tarefa 6: Criando um conjunto de IP
+Clique em serviços  e selecione  WAF & Shield  na  seção Segurança, Identidade e Conformidade  .
+
+No lado esquerdo, você poderá ver o  menu de conjuntos de IP  . Clique em conjuntos de IP e  clique em Criar conjuntos de IP.
+
+Na próxima tela, preencha os seguintes detalhes em  Criar conjunto de IP.
+
+Detalhes do conjunto de IP:
+
+Nome do conjunto de IP:  Digite MyIPset
+
+Descrição:  Digite o IP definido para bloquear meu IP público
+
+Região: Selecione  US EAST (Norte da Virgínia)
+
+Versão IP:  Selecione  IPv4
+
+Endereço IP:  Digite o  IP da sua rede local/32  em  https://www.whatismyip.com/ .
+
+Nota: Você deve fornecer /32 após o IP ser colado ou não será possível criar um conjunto de IP.
+
+Depois de fornecer os detalhes acima, clique em Criar conjunto de IP
+
+Tarefa 7: Criando uma Web ACL
+Detalhes da Web ACL
+
+Navegue até o painel do AWS WAF e selecione Web ACLs . Clique em C reate web ACL  para criar uma nova web ACL.
+
+Configure a ACL conforme abaixo:
+
+Detalhes da Web ACL
+
+Nome:  Digite MywebACL
+Descrição:  Digite ACL para bloquear meu IP público
+
+Tipo de recurso:  selecione recursos regionais (Application Load Balancer e API Gateway)  
+Região: selecione  US EAST (Norte da Virgínia)
+
+
+
+Para associar um recurso AWS, clique em Adicionar recursos AWS
+Em Adicionar recursos da AWS, selecione  Application Load Balancer  e selecione o nome de  ALB . Clique em Adicionar
+
+
+Por último, clique no  botão Avançar 
+
+Adicionar regras e grupos de regras
+
+Em  Regras,  clique em Adicionar regra  e selecione   Adicionar minhas próprias regras e grupos de regras  no menu suspenso.
+
+Em  Tipo de regra,  selecione  o conjunto de IP   conforme mostrado abaixo e preencha os detalhes conforme indicado abaixo:
+
+Tipo de regra: Selecione  o conjunto de IP 
+Nome:  Insira a regra MywebACL 
+Conjunto de IP:   selecione o conjunto de IP criado acima (MyIPset)
+Endereço IP a ser usado como endereço de origem : Endereço IP de origem
+Ação:  Selecionar Bloco
+Depois de fornecer os detalhes acima, clique em  Adicionar regra .
+
+Por último, clique no  botão Avançar 
+
+Definir prioridade de regra
+
+Deixe como padrão e clique em Próximo .
+
+Configurar métricas
+
+Deixe como padrão e clique em Avançar.
+
+Revise e crie ACL da web
+
+Revise todas as suas entradas e clique em Criar web ACL
+
+Aguarde 1 ou 2 minutos até ver que sua web ACL foi criada com sucesso.
+
+
+
+Você criou com sucesso uma web ACL para ALB com a ajuda de um conjunto de IPs criado com seu IP público.
+
+Tarefa 8: Testando o funcionamento do WAF
+Para testar o WAF, navegue até Load Balancers  no menu esquerdo do EC2 no subtítulo  Balanceamento de carga
+
+Na seção Balanceador de carga, selecione o balanceador de carga do aplicativo  Web-server-LB.
+
+Copie o nome DNS Em detalhes, role para baixo, você poderá ver o nome DNS, copie-o e cole-o no navegador desejado. 
+
+Exemplo : web-server-lb-1903855210.us-east-1.elb.amazonaws.com
+
+
+
+Você receberá um  erro 403 proibido  mostrando que o WAF bloqueou sua conexão com o ALB.
+
+
+
+Tarefa 9: Desbloqueando o IP 
+Para desbloquear o IP, navegue até conjuntos de IP  e clique em  MyIPset.  Selecione seu IP público e clique em Excluir 
+
+
+
+Digite  delete  na caixa de confirmação e clique em Delete .
+
+Você removeu com sucesso o IP do WAF.
+
+Aguarde alguns minutos.
+
+Navegue até Load Balancers  no menu esquerdo do EC2 no subtítulo  Balanceamento de carga
+
+Na seção Balanceador de carga, selecione o balanceador de carga do aplicativo  Web-server-LB.
+
+Copie o nome DNS em Descrição e cole-o no navegador desejado. 
+
+Exemplo : web-server-lb-1903855210.us-east-1.elb.amazonaws.com
+
+Você receberá a resposta dos servidores web informando  RESPONSE COMING FROM SERVER A  ou  RESPONSE COMING FROM SERVER B  conforme mostrado abaixo:
+
+
+
+Você sabe?
+Web Application Firewall (WAF): Um Web Application Firewall é um serviço de segurança que fica entre um aplicativo da web e seus usuários, inspecionando e filtrando o tráfego de entrada da web. No contexto da AWS, o serviço AWS WAF fornece essa funcionalidade. Ele ajuda a proteger aplicativos da Web examinando solicitações HTTP/HTTPS e aplicando um conjunto de regras predefinidas ou configurações de regras personalizadas para bloquear, permitir ou filtrar o tráfego com base em critérios especificados.

@@ -1,0 +1,25 @@
+        O que é KMS?
+O AWS Key Management Service (KMS) é um componente essencial da infraestrutura de segurança da Amazon Web Services, fornecendo um serviço gerenciado projetado para simplificar a criação e o gerenciamento de chaves de criptografia. 
+A criptografia é um aspecto crucial da segurança de dados, especialmente quando se trata de proteger dados em repouso. 
+O AWS KMS integra-se perfeitamente a vários serviços da AWS, como EBS, S3, Redshift, Elastic Transcoder e bancos de dados relacionais da Amazon, facilitando a criptografia de dados usando chaves gerenciadas pelo serviço.
+
+        Estudo de caso:
+Em cenários onde a proteção dos dados é fundamental, o AWS KMS oferece uma infraestrutura de gerenciamento de chaves totalmente gerenciada. A seleção de fontes de chaves confiáveis ​​torna-se crítica durante processos como criptografia de dados em repouso e execução de criptografia no lado do servidor. 
+O AWS KMS resolve isso armazenando chaves mestras do cliente, que podem executar criptografia diretamente ou gerar chaves de dados simétricas exclusivas. 
+Essas chaves de dados, sejam de 128 ou 256 bits, são criptografadas usando a chave mestra do cliente.
+
+        Principais funções do AWS KMS:
+- Armazenamento de chaves mestras de clientes: o KMS armazena chaves mestras de clientes, permitindo criptografia direta ou geração de chaves de dados.
+- Módulos de segurança de hardware: toda a criptografia e geração de chaves são realizadas em módulos de segurança de hardware, garantindo altos padrões de segurança validados em relação ao FIPS 140-2.
+- API multilocatário: o KMS atua como uma API multilocatário na frente dos HSMs, com os clientes interagindo por meio da API KMS, enquanto a AWS mantém acesso exclusivo ao hardware.
+- Registro e conformidade: o KMS registra o uso de chaves no CloudTrail, auxiliando nos requisitos de conformidade e facilitando auditorias para rastrear o uso de chaves.
+- Proteção de material criptográfico: O material criptográfico que constitui a chave mestra do cliente permanece dentro do HSM, aumentando a segurança geral do KMS.
+- Integração com serviços AWS: o KMS integra-se perfeitamente com vários serviços AWS que executam criptografia no lado do servidor, permitindo-lhes recuperar chaves de dados do KMS.
+- Certificações: o AWS KMS é certificado contra controles rigorosos, incluindo SOC1, SOC2, SOC3 e PCI DDS nível 1, garantindo um alto nível de conformidade de segurança.
+- O AWS KMS serve como uma solução robusta e versátil para gerenciar chaves de criptografia, fornecendo uma base segura para proteger dados confidenciais no ecossistema AWS.
+
+Você sabe?
+O KMS aplica políticas de controle de acesso para garantir que apenas indivíduos ou sistemas autorizados possam usar ou gerenciar chaves criptográficas. Isso ajuda a impedir o acesso não autorizado a informações confidenciais.
+
+                Você sabe?
+O KMS aplica políticas de controle de acesso para garantir que apenas indivíduos ou sistemas autorizados possam usar ou gerenciar chaves criptográficas. Isso ajuda a impedir o acesso não autorizado a informações confidenciais.

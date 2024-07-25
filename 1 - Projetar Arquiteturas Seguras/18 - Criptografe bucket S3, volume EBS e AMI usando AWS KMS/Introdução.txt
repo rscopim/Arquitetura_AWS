@@ -1,0 +1,15 @@
+        Introdução
+O Key Management Service (KMS) da Amazon Web Services (AWS) é um serviço de criptografia totalmente gerenciado que permite criar e controlar as chaves de criptografia usadas para proteger seus dados e cargas de trabalho no ecossistema da AWS. 
+Ele fornece uma maneira central de gerenciar chaves criptográficas para vários serviços da AWS e seus próprios aplicativos. 
+O AWS KMS facilita a criação e o gerenciamento de chaves de criptografia e oferece uma variedade de recursos e integrações para aumentar a segurança dos seus dados.
+
+O AWS KMS é um serviço essencial para proteger dados confidenciais e garantir a conformidade com requisitos de criptografia e gerenciamento de chaves. Simplifica o processo de gerenciamento de chaves, que pode ser complexo e sujeito a erros se implementado manualmente.
+
+Aqui estão alguns recursos e aspectos principais do AWS KMS:
+- Criação e gerenciamento de chaves: o AWS KMS permite criar e gerenciar chaves criptográficas. Você pode criar e alternar chaves para garantir a segurança dos dados.
+- Integração com serviços AWS: o KMS integra-se perfeitamente com muitos serviços AWS, como Amazon S3, Amazon RDS, Amazon EBS e muito mais. Você pode usar chaves KMS para criptografar dados armazenados nesses serviços.
+- Criptografia de envelope: o KMS usa criptografia de envelope, onde os dados são criptografados com uma chave de dados, e essa chave de dados é criptografada com uma chave mestra gerenciada pelo KMS. Isso fornece uma camada adicional de segurança.
+- Políticas de Chave e Controle de Acesso: Você pode definir políticas de acesso para controlar quem pode usar suas chaves. Isso permite restringir o acesso apenas a usuários e serviços autorizados.
+- Registro e monitoramento : o AWS KMS fornece registro e monitoramento abrangentes por meio do AWS CloudTrail e do AWS CloudWatch, permitindo rastrear o uso de chaves e detectar atividades suspeitas.
+- Armazenamento de chaves personalizado: você pode usar o AWS CloudHSM para criar armazenamentos de chaves personalizados para maior controle sobre suas chaves. Isso é útil para requisitos regulatórios e de conformidade.
+- Serviço regional: o AWS KMS opera em regiões específicas da AWS. Cada região tem seu próprio serviço KMS, que ajuda a garantir a localidade dos dados e a conformidade com as leis regionais de privacidade de dados.

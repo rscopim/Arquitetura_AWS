@@ -1,0 +1,510 @@
+Etapas do laboratório
+Tarefa 1: faça login no AWS Management Console
+Clique no botão Open Console  e você será redirecionado para o AWS Console em uma nova guia do navegador.
+
+Na página de login da AWS,
+
+Deixe o ID da conta como padrão. Nunca edite/remova o ID da conta de 12 dígitos presente no Console AWS. caso contrário, você não poderá prosseguir com o laboratório.
+
+Agora copie seu  nome de usuário  e  senha  no console do laboratório para o  nome de usuário e senha do IAM  no console AWS e clique no  botão Sign in  .
+
+Depois de fazer login no Console de gerenciamento da AWS, torne a região padrão da AWS como  Leste dos EUA (Norte da Virgínia) us-east-1.
+
+Tarefa 2: criando uma nova VPC
+Navegue até VPC clicando no botão Serviços   na parte superior do Console AWS.
+
+Clique em VPC (na seção Rede e entrega de conteúdo ) ou você também pode pesquisar por VPC.
+
+Clique em Suas VPCs no menu esquerdo.
+
+Aqui você pode ver a lista de todos os VPC. Não há necessidade de fazer nada ainda. Criaremos uma nova VPC para este laboratório.
+
+Clique em Criar VPC .
+
+Tag de nome: Digite MyVPC
+
+Bloco CIDR IPv4: digite 10.0.0.0/16 
+
+Bloco CIDR IPv6: Não há necessidade de alterar isso, certifique-se de que Nenhum bloco CIDR IPv6 esteja marcado.
+
+Locação: Não há necessidade de alterar isso, apenas certifique-se de que Padrão esteja selecionado.
+
+Clique em Criar VPC . 
+
+Depois que a VPC for criada, ela ficará semelhante ao exemplo abaixo:
+
+
+
+Tarefa 3: Criando Sub-redes
+Observação: neste laboratório, criaremos uma sub-rede pública e uma sub-rede privada nas zonas de disponibilidade us-east-1a e us-east-1b.
+
+Para a sub-rede pública , clique em Sub-redes no menu esquerdo e clique em Criar sub-rede.
+
+ID da VPC: selecione MyVPC na lista.
+
+Nome da sub-rede: digite MyPublicSubnet
+
+Zona de disponibilidade: selecione us-east-1a
+
+Bloco CIDR IPv4: Insira o intervalo 10.0.1.0/24
+
+Clique em Criar sub-rede
+
+Para Private Subnet , clique em Create Subnet novamente. 
+
+ID da VPC: selecione MyVPC na lista.
+
+Nome da sub-rede: digite MyPrivateSubnet
+
+Zona de disponibilidade: selecione us-east-1b
+
+Bloco CIDR IPv4: Insira o intervalo 10.0.2.0/24
+
+Clique em Criar sub-rede. 
+
+
+
+Tarefa 4: Crie e anexe um gateway de Internet
+Observação: por padrão, as instâncias executadas em uma VPC não podem se comunicar com a Internet.
+
+Para permitir o acesso à Internet, um gateway de Internet precisava ser conectado à VPC.
+
+Clique em Gateways de Internet no menu esquerdo e clique em Criar gateway de Internet .
+
+Tag de nome: Digite MyInternetGateway
+
+Clique em Criar Gateway de Internet.
+
+Selecione o gateway da Internet que você criou na lista.
+
+Clique em Ações .
+
+Clique em Anexar ao VPC .
+
+Selecione MyVPC e clique em Attach to VPC .
+
+
+
+Tarefa 5: Crie tabelas de rotas e associe-as a sub-redes
+Vá para Tabelas de rotas no menu esquerdo e clique em Criar tabela de rotas.
+
+Tag de nome:  Insira PublicRouteTable . 
+
+VPC:  selecione  MyVPC  na lista.
+
+Clique em  Criar tabela de rotas.
+
+Usaremos a  tabela de rotas padrão (principal)  criada pela VPC para a camada do banco de dados RDS.
+
+
+
+Você poderá ver a tabela de rotas com VPC ID MyVPC e Main como Yes
+
+Selecione a tabela de rotas e renomeie-a.
+
+Tag de nome: Insira PrivateRouteTable e [Enter]
+
+
+
+Agora associe as sub-redes às tabelas de rotas.
+
+Clique em PublicRouteTable e vá para Ação e vá para a guia Editar associações de sub-rede.
+
+Clique em   Editar associações de sub-rede .
+
+Selecione MyPublicSubnet na lista.
+
+Clique em Salvar associações
+
+Clique em PrivateRouteTable e vá para Ação e vá para a guia Editar associações de sub-rede.
+
+Clique em   Editar associações de sub-rede .
+
+Selecione MyPrivateSubnet na lista.
+
+Clique em Salvar associações
+
+Tarefa 6: atualizar a tabela de rotas e configurar o gateway da Internet
+PublicRouteTable : adicione uma rota para permitir o tráfego da Internet para a VPC.
+
+Selecione PublicRouteTable.
+
+Vá para a guia Rotas e clique em Editar rotas . Na próxima página, clique em Adicionar rota.
+
+Especifique os seguintes valores: 
+
+Destino: Digite 0.0.0.0/0
+
+Alvo: Selecione Internet Gateway no menu suspenso para selecionar MyInternetGateway .
+
+Clique em Salvar alterações.
+
+Tarefa 7: Habilitando a atribuição automática de IP público para sub-redes públicas
+Nota : Esta configuração permitirá que você atribua automaticamente IP público para todas as instâncias EC2 iniciadas na sub-rede pública
+
+ Clique em Sub-redes no menu esquerdo do VPC.
+
+Selecione   MyPublicSubnet na lista de sub-redes
+
+Clique em Ações e selecione Editar configurações de sub-rede 
+
+Marque a caixa de seleção Habilitar  atribuição automática de endereço IPv4
+
+Marque a caixa de seleção Habilitar registro DNS A do nome do recurso na inicialização
+
+Agora clique em Salvar
+
+Tarefa 8: lançando uma instância EC2 na sub-rede pública
+Navegue até EC2 clicando no menu Serviços  na parte superior e, a seguir, clique em EC2  na  seção Computação .
+
+Navegue até Instâncias no menu do lado esquerdo e clique em Iniciar instância.
+
+Digite o nome como  MyPublicEC2Server
+
+Escolha uma imagem de máquina da Amazon (AMI): selecione  Amazon Linux 2 AMI  no menu suspenso.
+
+Escolha  a arquitetura  como  64 bits (x86)
+              
+
+       5. Escolha um  tipo de instância : Selecione  t2.micro .
+
+             
+
+      6.  Para par de chaves:  selecione  o botão Criar um novo par de chaves 
+
+Nome do par de chaves:  WhizKey
+
+Tipo de par de chaves:  RSA
+
+Formato de arquivo de chave privada:  .pem
+
+      7. Selecione  o botão Criar par de chaves  .
+
+           
+
+      8. Nas configurações de rede, clique no   botão Editar :
+
+VPC:  MinhaVPC
+
+Sub-rede: escolha  MyPublicSubnet
+
+Atribuir IP público automaticamente:  Habilitar
+
+Selecione  Criar novo grupo de segurança
+
+Nome do grupo de segurança: Digite  MyWebserverSG
+
+Descrição: Entre  no meu grupo de segurança EC2
+
+Marque Permitir SSH de e selecione qualquer lugar no menu suspenso
+
+Fonte: Selecione em qualquer lugar 
+
+Escolha o tipo: SSH
+
+Para  HTTP,  selecione  o botão Adicionar regra de segurança 
+Escolha o tipo:  HTTP 
+
+Fonte: Selecione em qualquer lugar
+
+      9.  Em  Detalhes avançados, role para baixo até a seção Dados do usuário e insira o seguinte script para criar uma página HTML servida pelo Apache:
+
+#!/bin/bash     
+sudo su     
+yum update -y       
+yum install httpd -y    
+echo "<html><h1>Welcome to Whizlabs Server </h1><html>" >> /var/www/html/index.html     
+systemctl start httpd           
+systemctl enable httpd
+  10. Mantenha o padrão Rest e clique no botão  Iniciar instância  .
+
+  11. Selecione  Exibir todas as instâncias  para visualizar a instância que você criou
+
+  12. Status de inicialização:  sua instância está sendo iniciada. Clique no ID da instância e aguarde a inicialização completa da instância até que o status mude para  Running .
+
+Tarefa 9: iniciando uma instância EC2 na sub-rede privada
+Clique em  Launch Instances  novamente no canto superior direito do painel do EC2.
+Digite o nome como  MyPrivateEC2Server
+
+Escolha uma imagem de máquina da Amazon (AMI): selecione  Amazon Linux 2 AMI  no menu suspenso.
+
+Escolha  a arquitetura  como  64 bits (x86)
+              
+
+       5. Escolha um  tipo de instância : Selecione  t2.micro .
+
+             
+
+      6.  Para Par de chaves:  Selecione o par de chaves existente.
+
+      7. Nas configurações de rede, clique no   botão Editar :
+
+VPC:  MinhaVPC
+
+Sub-rede: Escolha  MyPrivateSubnet
+
+Atribuir IP público automaticamente: Desativar
+
+Selecione  Criar novo grupo de segurança
+
+Nome do grupo de segurança: Digite  MyServerSG
+
+Descrição: Entre  no meu grupo de segurança EC2
+
+Marque Permitir SSH de e selecione qualquer lugar no menu suspenso
+
+Escolha o tipo: SSH
+
+Fonte: Selecione em qualquer lugar 
+
+Para  TODOS ICMP IPv4 ,  selecione  o botão Adicionar regra de segurança  
+
+Escolha Tipo: Todos ICMP IPv4 . 
+
+Fonte: Selecione em qualquer lugar
+
+   8 . Mantenha o Rest como padrão e clique no botão  Iniciar instância  .
+
+   9. Selecione  Exibir todas as instâncias  para visualizar a instância que você criou
+
+  10.  Anote o endereço IP privado de MyPrivateEC2Server.
+
+  11. Dois servidores estão iniciados e prontos.
+
+
+
+Tarefa 10: Testando ambas as instâncias do EC2
+Instâncias públicas do EC2 : instalamos um aplicativo da web neste servidor.
+
+Selecione a instância MyPublicEC2Server EC2 na lista de instâncias.
+
+Na guia Descrição, copie o IP público IPv4 .
+
+
+Agora cole este IP em seu navegador da Web e clique em [Enter]
+
+Você poderá ver a seguinte página:
+
+
+A seguir, tentaremos fazer ping no EC2 privado a partir da instância do EC2 público.
+
+SSH na instância EC2
+
+Siga as etapas em  SSH na instância EC2 .
+Uma vez conectado ao servidor:
+
+Mude para usuário root: 
+
+sudo su
+Copie o IP privado de MyPrivateEC2Server da guia Descrição.
+
+ 
+Faça ping na instância privada usando o IPv4 privado
+Exemplo:
+
+
+Pressione [Ctrl] + C para parar em vez de pausar.
+Observação: você conseguiu executar essas tarefas porque o NACL padrão criado durante a criação da VPC permite INBOUND e OUTBOUND por padrão.
+
+Tarefa 11: Criar NACL personalizado e associá-lo à sub-rede
+Observação: por padrão, ambas as sub-redes serão associadas ao NACL padrão do MyVPC. Depois de criar um NACL personalizado e anexá-lo à sub-rede pública e à sub-rede privada.
+
+Navegue até VPC no menu Serviços. Clique em Network ACLs  em Segurança
+
+Clique em Criar Network ACL
+
+Criar ACL de rede:
+
+Tag de nome: Digite MyPublicNACL
+
+VPC: selecione MyVPC  na lista suspensa.
+
+Clique em Criar.
+
+Associando MyPublicNACL à sub-rede pública
+
+Selecione a guia Ação e clique em Editar associações de sub-rede
+
+Selecione as sub-redes Pública e Privada na tabela.
+
+Clique em Salvar alterações
+
+Renomeando o NACL principal
+
+Selecione o NACL padrão do VPC MyVPC
+
+
+ 
+
+Digite o nome MyPrivateNACL e clique em  Salvar
+
+Tarefa 12: Testando o Servidor Público e Privado 
+Instância EC2 pública:
+
+Navegue até o painel da instância EC2. Clique em Instâncias no menu do lado esquerdo.
+
+Selecione a instância MyPublicEC2Server EC2 na lista de instâncias.
+
+                 
+
+Na guia Descrição, copie o IP público IPv4 .
+
+Agora cole este IP em seu navegador e clique em [Enter]
+
+Você verá a seguinte página:
+
+
+      Observação: isso ocorre porque o NACL personalizado anexado à sua sub-rede pública restringe o tráfego de ENTRADA e SAÍDA.
+
+Instância EC2 privada:
+
+Como o NACL público restringe todo o tráfego, você não poderá fazer SSH na instância pública do EC2 para executar ping na instância privada.
+
+A seguir, vamos resolver isso.
+
+Tarefa 13: Adicionando regras ao NACL personalizado (MyPublicNACL)
+Navegue até VPC no menu Serviços . Clique em Network ACLs  em Segurança.
+
+Selecione MyPublicNACL  na lista.
+
+Nas regras de entrada, clique em Editar regras de entrada
+
+Adicione as seguintes regras:
+
+HTTP clique em Adicionar regras,
+
+Regra nº: Digite 100
+
+Tipo: Escolha HTTP (80) 
+
+Fonte: Digite  0.0.0.0/0
+
+Permitir/Negar: selecione Permitir
+
+Para TODOS ICMP-IPv4 , clique em Adicionar regras ,
+
+Regra nº: Digite 150
+
+Tipo: Escolha TODOS ICMP - IPv4 
+
+Fonte: Digite 0.0.0.0/0
+
+Permitir/Negar: selecione Permitir
+
+Para SSH , clique em Adicionar regras ,
+
+Regra nº: Digite 200 
+
+Tipo: Escolha SSH (22) 
+
+Fonte: Digite 0.0.0.0/0
+
+Permitir/Negar: selecione Permitir
+
+
+Clique em Salvar alterações
+
+Na guia Regras de saída , clique em Editar regras de saída
+
+Adicione as seguintes regras:
+
+A porta personalizada já está disponível,
+
+Regra nº: Digite 100
+
+Tipo: Escolha regra TCP personalizada
+
+Faixa de portas: insira 1024 - 65535
+
+Fonte: Digite 0.0.0.0/0
+
+Permitir/Negar: selecione Permitir
+
+Para TODOS ICMP-IPv4 , clique em Adicionar regras ,
+
+Regra nº: Digite 150
+
+Tipo: Escolha TODOS ICMP - IPv4 
+
+Fonte: Digite 0.0.0.0/0
+
+Permitir/Negar: selecione Permitir
+
+Para SSH , clique em Adicionar regras ,
+
+Regra nº: Digite 200
+
+Tipo: Escolha SSH (22) 
+
+Fonte: Digite 0.0.0.0/0 
+
+Permitir/Negar: selecione Permitir
+
+
+Clique em Salvar
+
+Tarefa 14: Testando ambas as instâncias do EC2
+Tentaremos fazer ping no EC2 privado a partir da instância do EC2 público.
+
+SSH na instância EC2
+
+Siga as etapas em SSH na instância EC2 .
+
+Uma vez conectado ao servidor:
+
+Mude para usuário root:
+
+sudo su
+Copie o IP privado de MyPrivateEC2Server da guia Descrição.
+
+
+
+Faça ping para a instância privada usando o IPv4 privado
+
+Exemplo:
+
+
+
+Pressione [Ctrl] + C novamente para cancelar o processo em vez de pausá-lo.
+
+Observação: você conseguiu realizar essas tarefas porque adicionamos regras NACL.
+
+Você sabe?
+Ao participar do AWS VPC NACL Lab, os usuários adquirem uma variedade de habilidades e conhecimentos práticos, incluindo a capacidade de criar NACLs, definir conjuntos de regras para sub-redes específicas, avaliar padrões de tráfego, implementar regras de permissão e negação e analisar o impacto das configurações de NACL. na comunicação em rede. Além disso, os participantes obtêm insights sobre como otimizar configurações NACL para diferentes casos de uso, proteger cargas de trabalho confidenciais e mitigar possíveis riscos de segurança em suas VPCs da AWS.
+
+Tarefa 15: Teste de Validação
+Assim que as etapas do laboratório forem concluídas, clique no botão Validação  no painel do lado direito.
+
+Isso validará os recursos na conta da AWS e mostrará se você concluiu este laboratório com êxito ou não.
+
+Exemplo de saída:
+
+ 
+
+Conclusão e Conclusão
+Você criou uma VPC usando o VPC Wizard.
+
+Você criou um gateway de Internet.
+
+Você criou uma sub-rede pública e privada para a VPC.
+
+Você criou e associou tabelas de rotas.
+
+Você adicionou rotas à tabela de rotas
+
+Você executou algumas instâncias do EC2 nas sub-redes Pública e Privada.
+
+Você criou um NACL personalizado.
+
+Você associou o NACL às sub-redes.
+
+Você adicionou regras de entrada e saída ao NACL customizado.
+
+Você testou nosso VPC.
+
+Finalizar laboratório
+Saia da conta AWS.
+
+Você concluiu o laboratório com êxito.
+
+Depois de concluir as etapas, clique em End Lab  no painel do whizlabs. 

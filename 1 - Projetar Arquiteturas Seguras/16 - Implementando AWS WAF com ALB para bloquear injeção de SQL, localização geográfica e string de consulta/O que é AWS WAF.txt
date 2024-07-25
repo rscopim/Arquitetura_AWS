@@ -1,0 +1,82 @@
+        O que é AWS WAF?
+- O AWS WAF é um firewall de aplicativos web que ajuda a proteger seus aplicativos web contra explorações comuns da web que podem afetar a disponibilidade e comprometer a segurança.
+- O AWS WAF oferece controle sobre como o tráfego chega às suas aplicações, permitindo criar regras de segurança que bloqueiam padrões de ataque comuns, como injeção de SQL e scripts entre sites.
+- Ele só permite que a solicitação chegue ao servidor com base nas regras ou padrões que você define.
+- Os usuários criam suas próprias regras e especificam as condições que o AWS WAF procura nas solicitações da web recebidas.
+- O custo do WAF é apenas para o que você usa.
+- O preço é baseado em quantas regras você implanta e em quantas solicitações da Web seu aplicativo recebe.
+- Por exemplo, você pode implantar o AWS WAF no Amazon CloudFront, Load Balancer ou API Gateways.
+ 
+
+O que é o Elastic Load Balancing?
+ELB é um serviço que distribui automaticamente o tráfego de entrada de aplicativos e dimensiona recursos para atender às demandas de tráfego.
+
+Ajuda a ajustar a capacidade de acordo com o aplicativo de entrada e o tráfego de rede.
+
+1 - Ele pode ser habilitado em uma única zona de disponibilidade ou em diversas zonas de disponibilidade para manter um desempenho consistente do aplicativo.
+
+    ELB oferece recursos como:
+
+    Detecção de instâncias EC2 não íntegras.
+
+    Distribuindo instâncias do EC2 apenas em canais íntegros.
+
+    Gerenciamento centralizado de certificados SSL.
+
+    Autenticação de chave pública opcional.
+
+    Suporte para IPv4 e IPv6.
+
+O ELB aceita tráfego de entrada de clientes e roteia solicitações para seus alvos registrados.
+
+Quando um destino ou instância não íntegro é detectado, o ELB interrompe o roteamento do tráfego para ele e retoma apenas quando a instância estiver íntegra novamente.
+
+O ELB monitora a integridade de seus alvos registrados e garante que o tráfego seja roteado apenas para instâncias íntegras.
+
+Os ELBs são configurados para aceitar tráfego de entrada especificando um ou mais ouvintes . Um ouvinte é um processo que verifica solicitações de conexão.
+
+Os ouvintes são configurados com um protocolo e número de porta do cliente para o ELB e vice-versa, ou seja, de volta do ELB para o cliente.
+
+ELB suporta o seguinte:
+
+    Balanceadores de carga de aplicativos.
+
+    Balanceadores de carga de rede.
+
+    Balanceadores de carga de gateway.
+
+    Balanceadores de carga clássicos.
+
+Cada balanceador de carga é configurado de maneira diferente.
+
+Para balanceadores de carga de rede e de aplicativo, você registra destinos em grupos de destino e roteia o tráfego para grupos de destino.
+
+Os Gateway Load Balancers usam endpoints do Gateway Load Balancer para trocar tráfego com segurança entre os limites da VPC.
+
+Para balanceadores de carga clássicos, você registra instâncias no balanceador de carga.
+
+A AWS recomenda que os usuários trabalhem com o Application Load Balancer para usar várias zonas de disponibilidade porque, se uma zona de disponibilidade falhar, o balanceador de carga poderá continuar a rotear o tráfego para a próxima zona disponível.
+
+Podemos fazer com que nosso balanceador de carga seja interno ou voltado para a Internet.
+
+Os nós de um balanceador de carga voltado para a Internet têm endereços IP públicos e o nome DNS pode ser resolvido publicamente para os endereços IP públicos dos nós.
+
+Devido ao ponto acima, os balanceadores de carga voltados para a Internet podem rotear solicitações de clientes pela Internet.
+
+Os nós de um balanceador de carga interno possuem apenas endereços IP privados, e o nome DNS pode ser resolvido publicamente para os endereços IP privados dos nós.
+
+Devido ao ponto acima, os balanceadores de carga internos só podem rotear solicitações de clientes com acesso à VPC do balanceador de carga.
+
+Os balanceadores de carga internos e voltados para a Internet encaminham solicitações para seus destinos usando endereços IP privados.
+
+Seus destinos não precisam de endereços IP públicos para receber solicitações de um balanceador de carga interno ou voltado para a Internet.
+
+Você pode criar suas próprias regras, dependendo de suas necessidades, seja para bloquear ou permitir a solicitação de entrada e saída. Você também pode personalizar a string que aparece na sua solicitação da web.
+
+ Bloqueio de solicitações maliciosas
+
+Você também pode configurar regras no AWS WAF para identificar e bloquear ameaças de solicitações da Web, como injeções de SQL e scripts entre sites.
+
+Ajuste suas regras e monitore o tráfego                                
+
+O AWS WAF também nos permite revisar nossas regras e personalizá-las para evitar que novos ataques cheguem ao servidor.

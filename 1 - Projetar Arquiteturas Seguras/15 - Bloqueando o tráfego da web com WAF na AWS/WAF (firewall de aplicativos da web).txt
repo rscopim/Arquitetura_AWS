@@ -1,27 +1,19 @@
         WAF (firewall de aplicativos da web)
-O AWS WAF é um firewall de aplicativos web que ajuda a proteger seus aplicativos web contra explorações comuns da web que podem afetar a disponibilidade e comprometer a segurança.
-
-O AWS WAF oferece controle sobre como o tráfego chega às suas aplicações, permitindo criar regras de segurança que bloqueiam padrões de ataque comuns, como injeção de SQL e scripts entre sites.
-
-Ele só permite que a solicitação chegue ao servidor com base nas regras ou padrões que você define.
-
-Os usuários criam suas próprias regras e especificam as condições que o AWS WAF procura nas solicitações da web recebidas.
-
-O custo do WAF é apenas para o que você usa. 
-
-O preço é baseado em quantas regras você implanta e em quantas solicitações da Web seu aplicativo recebe.
-
-Por exemplo, você pode implantar o AWS WAF no Amazon CloudFront com um Application Load Balancer na frente de seus servidores web ou servidores em execução no EC2.
+1 - O AWS WAF é um firewall de aplicativos web que ajuda a proteger seus aplicativos web contra explorações comuns da web que podem afetar a disponibilidade e comprometer a segurança.
+2 - O AWS WAF oferece controle sobre como o tráfego chega às suas aplicações, permitindo criar regras de segurança que bloqueiam padrões de ataque comuns, como injeção de SQL e scripts entre sites.
+3 - Ele só permite que a solicitação chegue ao servidor com base nas regras ou padrões que você define.
+4 - Os usuários criam suas próprias regras e especificam as condições que o AWS WAF procura nas solicitações da web recebidas.
+5 - O custo do WAF é apenas para o que você usa.
+6 - O preço é baseado em quantas regras você implanta e em quantas solicitações da Web seu aplicativo recebe.
+7 - Por exemplo, você pode implantar o AWS WAF no Amazon CloudFront com um Application Load Balancer na frente de seus servidores web ou servidores em execução no EC2.
 
         Recursos do WAF
-Filtragem de tráfego da Web usando regras personalizadas 
-Você pode criar suas próprias regras, dependendo de suas necessidades, seja para bloquear ou permitir solicitações de entrada e saída. Você também pode personalizar a string que aparece na sua solicitação da web.
-
- Bloqueio de solicitações maliciosas
-Você também pode configurar regras no AWS WAF para identificar e bloquear ameaças de solicitações da Web, como injeções de SQL e scripts entre sites.
-
-Ajuste suas regras e monitore o tráfego                                
-O AWS WAF também nos permite revisar nossas regras e personalizá-las para evitar que novos ataques cheguem ao servidor.
+1 - Filtragem de tráfego da Web usando regras personalizadas 
+- Você pode criar suas próprias regras, dependendo de suas necessidades, seja para bloquear ou permitir solicitações de entrada e saída. Você também pode personalizar a string que aparece na sua solicitação da web.
+2 - Bloqueio de solicitações maliciosas
+- Você também pode configurar regras no AWS WAF para identificar e bloquear ameaças de solicitações da Web, como injeções de SQL e scripts entre sites.
+3 - Ajuste suas regras e monitore o tráfego                                
+- O AWS WAF também nos permite revisar nossas regras e personalizá-las para evitar que novos ataques cheguem ao servidor.
 
 Descrição do laboratório
 Balanceador de carga de aplicativo (ALB)
