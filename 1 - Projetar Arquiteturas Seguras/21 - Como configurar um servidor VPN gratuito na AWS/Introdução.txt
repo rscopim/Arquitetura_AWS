@@ -17,3 +17,6 @@
 - Cada conta da AWS vem com um conjunto de limites padrão de recursos por região.
 - Para qualquer aumento no limite, você precisa entrar em contato com a AWS.
 - Para trabalhar com as instâncias criadas, usamos Key Pairs.
+
+
+tstetetetetet
