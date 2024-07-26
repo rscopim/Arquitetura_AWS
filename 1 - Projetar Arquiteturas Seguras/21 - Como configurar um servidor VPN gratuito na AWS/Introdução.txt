@@ -1,0 +1,19 @@
+        O que é um EC2?
+- A AWS o define como Elastic Compute Cloud.
+- É um ambiente virtual onde “você aluga” para ter seu ambiente criado, sem precisar comprar.
+- A Amazon se refere a essas máquinas virtuais como Instâncias.
+- Modelos pré-configurados podem ser usados ​​para executar instâncias. Esses modelos são chamados de imagens. A Amazon fornece essas imagens na forma de AMIs (Amazon Machine Images).
+- Permite instalar aplicativos e serviços personalizados.
+- O dimensionamento da infraestrutura, ou seja, para cima ou para baixo, é fácil com base na demanda que você enfrenta.
+- A AWS fornece várias configurações de CPU, memória, armazenamento, etc., por meio das quais você pode escolher o tipo necessário para seu ambiente.
+- Sem limitação de armazenamento. Você pode escolher o armazenamento com base no tipo de instância em que está trabalhando.
+-São fornecidos volumes de armazenamento temporário, chamados de Volumes de Armazenamento de Instâncias. Os dados armazenados nele são excluídos quando a instância é encerrada.
+- Volumes de armazenamento persistente estão disponíveis e são chamados de volumes EBS (Elastic Block Store).
+- Essas instâncias podem ser colocadas em vários locais chamados de regiões e zonas de disponibilidade (AZ).
+- Você pode ter suas instâncias distribuídas em várias AZs, ou seja, dentro de uma única região, de modo que, se uma instância falhar, a AWS remapeie automaticamente o endereço para outra AZ.
+- As instâncias implantadas em uma AZ podem ser migradas para outra AZ.
+- Para gerenciar instâncias, imagens e outros recursos do EC2, você pode opcionalmente atribuir seus metadados a cada recurso na forma de tags.
+- Uma tag é um rótulo atribuído a um recurso da AWS. Ele contém uma chave e um valor opcional, ambos definidos por você.
+- Cada conta da AWS vem com um conjunto de limites padrão de recursos por região.
+- Para qualquer aumento no limite, você precisa entrar em contato com a AWS.
+- Para trabalhar com as instâncias criadas, usamos Key Pairs.
