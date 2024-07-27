@@ -6,3 +6,6 @@
 - O API Gateway lida com todas as tarefas envolvidas na aceitação e processamento de centenas ou milhares de chamadas de API simultâneas, incluindo gerenciamento de tráfego, suporte a CORS, autorização e controle de acesso, otimização, monitoramento e gerenciamento de versão de API. 
 
 - Usando o API Gateway, você pode criar APIs RESTful e APIs WebSocket que permitem aplicativos de comunicação bidirecional em tempo real. O API Gateway oferece suporte a cargas de trabalho em contêineres e sem servidor, bem como a aplicativos da web.
+
+    Você sabe?
+O API Gateway foi desenvolvido para lidar com altos níveis de tráfego e simultaneidade, tornando-o adequado para uma ampla variedade de aplicações, desde pequenos projetos até sistemas empresariais de grande escala. Ele é dimensionado automaticamente para acomodar vários níveis de tráfego de API, garantindo que os aplicativos possam lidar com um número significativo de solicitações simultâneas sem comprometer o desempenho ou a confiabilidade.
