@@ -36,4 +36,8 @@
 - O API Gateway lida com todas as tarefas envolvidas na aceitação e processamento de centenas ou milhares de chamadas de API simultâneas, incluindo gerenciamento de tráfego, suporte a CORS, autorização e controle de acesso, otimização, monitoramento e gerenciamento de versão de API.
 - Usando o API Gateway, você pode criar APIs RESTful e APIs WebSocket que permitem aplicativos de comunicação bidirecional em tempo real. O API Gateway oferece suporte a cargas de trabalho em contêineres e sem servidor, bem como a aplicativos da web.
 - O AWS Lambda permite executar código sem provisionar ou gerenciar servidores. Você paga apenas pelo tempo de computação consumido.
-- Com o Lambda, você pode executar código para praticamente qualquer tipo de aplicativo ou serviço de back-end – tudo sem administração. Basta fazer upload do seu código e o Lambda cuidará de tudo o que é necessário para executar e dimensionar seu código com alta disponibilidade. Você pode configurar seu código para ser acionado automaticamente a partir de outros serviços da AWS ou chamá-lo diretamente de qualquer aplicativo web ou móvel. 
+- Com o Lambda, você pode executar código para praticamente qualquer tipo de aplicativo ou serviço de back-end – tudo sem administração. Basta fazer upload do seu código e o Lambda cuidará de tudo o que é necessário para executar e dimensionar seu código com alta disponibilidade. Você pode configurar seu código para ser acionado automaticamente a partir de outros serviços da AWS ou chamá-lo diretamente de qualquer aplicativo web ou móvel.
+
+
+    Você sabe?
+- O API Gateway foi projetado para lidar com grande escala e pode suportar até centenas de milhares de solicitações de API simultâneas. Isso significa que mesmo que seu aplicativo experimente picos repentinos de tráfego, o API Gateway poderá lidar com o aumento de carga perfeitamente, sem qualquer configuração adicional ou esforço de escalonamento de sua parte.
