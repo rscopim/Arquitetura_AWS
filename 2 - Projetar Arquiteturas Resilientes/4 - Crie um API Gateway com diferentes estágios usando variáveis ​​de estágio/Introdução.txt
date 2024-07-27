@@ -1,0 +1,39 @@
+    EC2
+- A AWS o define como Elastic Compute Cloud.
+- É um ambiente virtual onde “você aluga” para ter seu ambiente criado, sem precisar comprar.
+- A Amazon se refere a essas máquinas virtuais como instâncias.
+- Modelos pré-configurados podem ser usados ​​para executar instâncias. Esses modelos são chamados de imagens. A Amazon fornece essas imagens na forma de AMIs (Amazon Machine Images).
+- Permite instalar aplicativos e serviços personalizados.
+- O dimensionamento da infraestrutura, ou seja, para cima ou para baixo, é fácil com base na demanda que você enfrenta.
+- A AWS fornece várias configurações de CPU, memória, armazenamento, etc., por meio das quais você pode escolher o tipo necessário para o seu ambiente.
+- Sem limitação de armazenamento. Você pode escolher o armazenamento com base no tipo de instância em que está trabalhando.
+- São fornecidos volumes de armazenamento temporário, chamados de Volumes de Armazenamento de Instâncias. Os dados armazenados nele são excluídos quando a instância é encerrada.
+- Volumes de armazenamento persistente estão disponíveis e são chamados de volumes EBS (Elastic Block Store).
+- Essas instâncias podem ser colocadas em vários locais, chamados de regiões e zonas de disponibilidade (AZ).
+- Você pode ter suas instâncias distribuídas em várias AZs, ou seja, dentro de uma única região, de modo que, se uma instância falhar, a AWS remapeie automaticamente o endereço para outra AZ.
+- As instâncias implantadas em uma AZ podem ser migradas para outra AZ.
+- Para gerenciar instâncias, imagens e outros recursos do EC2, você pode opcionalmente atribuir seus próprios metadados a cada recurso na forma de tags.
+- Uma tag é um rótulo atribuído a um recurso da AWS. Ele contém uma chave e um valor opcional, ambos definidos por você.
+- Cada conta da AWS vem com um conjunto de limites padrão de recursos por região.
+- Para qualquer aumento no limite, você precisa entrar em contato com a AWS.
+- Para trabalhar com as instâncias criadas, usamos Key Pairs.
+
+    IAM
+- Significa gerenciamento de identidade e acesso.
+- Serviço da Web que ajuda o usuário a controlar com segurança o acesso aos recursos da AWS.
+- Usado para controlar quem está autenticado e autorizado a usar recursos da AWS.
+- A primeira “identidade” é a criação de uma conta no portal AWS. Ao fornecer o e-mail e a senha, é criada uma Identidade, que é o “usuário root” que detém todas as permissões para acessar todos os recursos da AWS.
+- Os principais recursos no IAM são usuários, grupos, funções, políticas e provedores de identidade.
+- O Grupo IAM é uma coleção de usuários IAM. Você usa grupos para especificar permissões para um conjunto de usuários, o que pode facilitar o gerenciamento dessas permissões para esses usuários.
+- As funções do IAM são como usuários do IAM, pois ambas são identidades com políticas de permissão que determinam o que o proprietário pode acessar.
+- As funções do IAM não possuem credenciais associadas a elas.
+- As funções do IAM devem ser assumidas por qualquer pessoa que precise delas.
+- O IAM pode ser usado na AWS CLI, AWS SDK e AWS Management Console.
+
+    Gateway de API da Amazon
+- O Amazon API Gateway é um serviço totalmente gerenciado que facilita aos desenvolvedores criar, publicar, manter, monitorar e proteger APIs em qualquer escala.
+- As APIs atuam como porta de entrada para que os aplicativos acessem dados, lógica de negócios ou funcionalidades de seus serviços de back-end.
+- O API Gateway lida com todas as tarefas envolvidas na aceitação e processamento de centenas ou milhares de chamadas de API simultâneas, incluindo gerenciamento de tráfego, suporte a CORS, autorização e controle de acesso, otimização, monitoramento e gerenciamento de versão de API.
+- Usando o API Gateway, você pode criar APIs RESTful e APIs WebSocket que permitem aplicativos de comunicação bidirecional em tempo real. O API Gateway oferece suporte a cargas de trabalho em contêineres e sem servidor, bem como a aplicativos da web.
+- O AWS Lambda permite executar código sem provisionar ou gerenciar servidores. Você paga apenas pelo tempo de computação consumido.
+- Com o Lambda, você pode executar código para praticamente qualquer tipo de aplicativo ou serviço de back-end – tudo sem administração. Basta fazer upload do seu código e o Lambda cuidará de tudo o que é necessário para executar e dimensionar seu código com alta disponibilidade. Você pode configurar seu código para ser acionado automaticamente a partir de outros serviços da AWS ou chamá-lo diretamente de qualquer aplicativo web ou móvel. 
