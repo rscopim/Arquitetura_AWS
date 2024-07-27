@@ -12,4 +12,4 @@
 - Essa adaptabilidade atende a uma ampla variedade de casos de uso, desde a construção de aplicativos móveis e web até a criação de soluções de comunicação em tempo real. 
 - Outro aspecto interessante do Amazon API Gateway é sua integração com outros serviços da AWS. 
 - Ele funciona perfeitamente com serviços como AWS Lambda, permitindo que os desenvolvedores criem APIs sem servidor conectando-se diretamente às funções do Lambda sem a necessidade de gerenciar servidores. 
-- Além disso, ele pode ser integrado ao AWS Identity and Access Management (IAM), permitindo mecanismos robustos de autenticação e autorização para proteger APIs de maneira eficaz.
+- Além disso, ele pode ser integrado ao AWS Identity and Access Management (IAM), permitindo mecanismos robustos de autenticação e autorização para proteger APIs de maneira eficaz. 
