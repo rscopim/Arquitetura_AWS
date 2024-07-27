@@ -9,4 +9,11 @@
 
 - O AWS Lambda permite executar código sem provisionar ou gerenciar servidores. Você paga apenas pelo tempo de computação consumido.
 
-- Com o Lambda, você pode executar código para praticamente qualquer tipo de aplicativo ou serviço de back-end, tudo sem administração. Basta fazer upload do seu código e o Lambda cuidará de tudo o que é necessário para executar e dimensionar seu código com alta disponibilidade. Você pode configurar seu código para ser acionado automaticamente a partir de outros serviços da AWS ou chamá-lo diretamente de qualquer aplicativo web ou móvel.     
+- Com o Lambda, você pode executar código para praticamente qualquer tipo de aplicativo ou serviço de back-end, tudo sem administração. Basta fazer upload do seu código e o Lambda cuidará de tudo o que é necessário para executar e dimensionar seu código com alta disponibilidade. Você pode configurar seu código para ser acionado automaticamente a partir de outros serviços da AWS ou chamá-lo diretamente de qualquer aplicativo web ou móvel.
+
+    Você sabe?
+- API Gateway é um serviço AWS totalmente gerenciado que permite aos desenvolvedores criar, publicar e gerenciar APIs para seus aplicativos. Ele atua como uma porta de entrada para seus serviços de back-end, permitindo que você exponha com segurança suas APIs aos clientes, lide com autenticação e autorização e aplique diversas transformações e otimizações.
+
+- AWS Lambda é um serviço de computação sem servidor fornecido pela Amazon Web Services. Ele permite que os desenvolvedores escrevam e executem código sem provisionar ou gerenciar servidores. Uma função Lambda é um trecho de código que executa uma tarefa específica ou trata de uma solicitação de API específica. Pode ser escrito em várias linguagens de programação e é acionado por eventos, como uma solicitação de API.
+
+- A integração do Lambda no API Gateway refere-se ao processo de conexão de um endpoint de API com uma função Lambda. Ele permite que o API Gateway invoque a função Lambda em resposta às solicitações de API recebidas, permitindo que a função processe a solicitação, execute a lógica de negócios e gere uma resposta.
