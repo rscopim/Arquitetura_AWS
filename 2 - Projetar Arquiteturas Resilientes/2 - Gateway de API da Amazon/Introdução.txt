@@ -1,0 +1,8 @@
+        Gateway de API da Amazon
+- O Amazon API Gateway é um serviço totalmente gerenciado que facilita aos desenvolvedores criar, publicar, manter, monitorar e proteger APIs em qualquer escala. 
+
+- As APIs atuam como porta de entrada para que os aplicativos acessem dados, lógica de negócios ou funcionalidades de seus serviços de back-end. 
+
+- O API Gateway lida com todas as tarefas envolvidas na aceitação e processamento de centenas ou milhares de chamadas de API simultâneas, incluindo gerenciamento de tráfego, suporte a CORS, autorização e controle de acesso, otimização, monitoramento e gerenciamento de versão de API. 
+
+- Usando o API Gateway, você pode criar APIs RESTful e APIs WebSocket que permitem aplicativos de comunicação bidirecional em tempo real. O API Gateway oferece suporte a cargas de trabalho em contêineres e sem servidor, bem como a aplicativos da web.
